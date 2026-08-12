@@ -1,0 +1,139 @@
+---
+title: 'TechDays: AI Fluency'
+description: A half-day, hands-on training lab on configuring AI coding agents — AGENTS.md, commands, skills, plugins, and MCP.
+template: splash
+hero:
+  tagline: Agentic agents. A half-day training lab on configuring AI coding agents — AGENTS.md, commands, skills, plugins, and MCP servers.
+  image:
+    alt: Patterson Companies
+    dark: ../../assets/patterson-logo-white.svg
+    light: ../../assets/patterson-logo-navy.svg
+  actions:
+    - text: Start the tutorial
+      link: /tutorial/1-agents-md/
+      icon: right-arrow
+      variant: primary
+    - text: Read the lesson plan
+      link: /facilitators/lesson-plan/
+      variant: minimal
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## What this session covers
+
+Five modules, one ladder: from context that is always loaded to capability that lives
+outside the agent entirely. **AGENTS.md · Commands · Skills · Plugins · MCP servers.**
+Eighteen hands-on lessons walk the same ladder that the projected deck and the
+attendee workbook cover, so every attendee has a page to work from and a page to keep.
+
+<CardGrid stagger>
+  <Card title="Trusted expertise">
+    Five modules, eighteen lessons, one afternoon. Every module ends with a checkpoint
+    exercise you run yourself.
+  </Card>
+  <Card title="Unrivaled support">
+    The deck, the workbook, and the lesson plan ship from this same site, so nothing
+    you need is a download or a different link away.
+  </Card>
+</CardGrid>
+
+## Session materials
+
+<div className="techdays-artifact-grid">
+  <a className="techdays-artifact-card" href="/ai-fluency-agentic-agents.html">
+    <img src="/screenshots/deck-title.webp" alt="Title slide of the projected training deck" loading="lazy" />
+    <div className="techdays-artifact-card-body">
+      <p className="techdays-artifact-card-title">Training deck</p>
+      <p className="techdays-artifact-card-desc">The 35-slide projected deck, in Patterson light and navy themes.</p>
+    </div>
+  </a>
+  <a className="techdays-artifact-card" href="/ai-fluency-executive-deck.html">
+    <div className="techdays-artifact-card-placeholder" aria-hidden="true" />
+    <div className="techdays-artifact-card-body">
+      <p className="techdays-artifact-card-title">Executive deck</p>
+      <p className="techdays-artifact-card-desc">A six-slide pitch for sponsors and stakeholders who need the case, not the lab.</p>
+    </div>
+  </a>
+  <a className="techdays-artifact-card" href="/lab-workbook.html">
+    <img src="/screenshots/lab-workbook.webp" alt="The rendered attendee lab workbook" loading="lazy" />
+    <div className="techdays-artifact-card-body">
+      <p className="techdays-artifact-card-title">Lab workbook</p>
+      <p className="techdays-artifact-card-desc">The attendee workbook, rendered from the same markdown as this tutorial.</p>
+    </div>
+  </a>
+  <a className="techdays-artifact-card" href="/lesson-plan.html">
+    <div className="techdays-artifact-card-placeholder" aria-hidden="true" />
+    <div className="techdays-artifact-card-body">
+      <p className="techdays-artifact-card-title">Lesson plan</p>
+      <p className="techdays-artifact-card-desc">The presenter's guide: timing, arc, and the questions each module tends to raise.</p>
+    </div>
+  </a>
+  <a className="techdays-artifact-card" href="/tutorialkit-preview.html">
+    <div className="techdays-artifact-card-placeholder" aria-hidden="true" />
+    <div className="techdays-artifact-card-body">
+      <p className="techdays-artifact-card-title">TutorialKit preview</p>
+      <p className="techdays-artifact-card-desc">A browser-only preview of the original TutorialKit content package this tutorial was ported from.</p>
+    </div>
+  </a>
+  <a className="techdays-artifact-card" href="/skill-studio/">
+    <div className="techdays-artifact-card-placeholder" aria-hidden="true" />
+    <div className="techdays-artifact-card-body">
+      <p className="techdays-artifact-card-title">Skill Studio</p>
+      <p className="techdays-artifact-card-desc">A companion app for building and inspecting Agent Skills.</p>
+    </div>
+  </a>
+</div>
+
+<style>
+  {`
+  .techdays-artifact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 1rem;
+    margin-block: 1.5rem;
+  }
+  .techdays-artifact-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--sl-color-hairline);
+    border-radius: var(--pat-radius, 5px);
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    background: var(--sl-color-bg-nav, var(--sl-color-black));
+    transition: var(--pat-transition, border-color 0.2s ease);
+  }
+  .techdays-artifact-card:hover {
+    border-color: var(--pat-sky, var(--sl-color-accent));
+  }
+  .techdays-artifact-card img,
+  .techdays-artifact-card-placeholder {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    background: var(--pat-navy-10, var(--sl-color-gray-6));
+  }
+  .techdays-artifact-card-body {
+    padding: 0.85rem 1rem 1.1rem;
+  }
+  .techdays-artifact-card-title {
+    margin: 0 0 0.35rem;
+    font-weight: 600;
+    color: var(--sl-color-white);
+  }
+  .techdays-artifact-card-desc {
+    margin: 0;
+    font-size: var(--sl-text-sm);
+    color: var(--sl-color-gray-3);
+  }
+  `}
+</style>
+
+## Where to go next
+
+Start with [AGENTS.md](/tutorial/1-agents-md/), the first module, or read the
+[lesson plan](/facilitators/lesson-plan/) for the full arc. The interactive
+[tutorial](/tutorial/1-agents-md/) and the printable [workshop track](/curriculum/tutorial-01-agents-md/)
+draw from the same markdown, so nothing you read here contradicts what you read on paper.
