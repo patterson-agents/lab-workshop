@@ -1,6 +1,0 @@
-{
-  "name": "scratch",
-  "private": true,
-  "type": "module",
-  "description": "Scratch workspace — Claude Code runs on your machine; this editor displays the artifact files each lesson builds."
-}

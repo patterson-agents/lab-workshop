@@ -13,7 +13,7 @@ A half-day, hands-on training lab on configuring AI coding agents — AGENTS.md,
 skills, plugins, and MCP.
 
 ![deck](https://img.shields.io/badge/deck-35_slides-0065FF?labelColor=001B34)
-![tutorialkit](https://img.shields.io/badge/tutorialkit-5_parts_·_18_lessons-055ABD?labelColor=001B34)
+![tutorial](https://img.shields.io/badge/tutorial-5_parts_·_18_lessons-055ABD?labelColor=001B34)
 ![build](https://img.shields.io/badge/build-none_required-7BFF1B?labelColor=001B34)
 ![fonts](https://img.shields.io/badge/fonts-excluded_pending_license-58585B?labelColor=001B34)
 
@@ -48,7 +48,7 @@ The training package for **"TechDays: AI Fluency – Agentic Agents,"** a half-d
 - A 35-slide projected deck (`ai-fluency-agentic-agents.html`), Patterson light + navy themes
 - A 6-slide executive deck and an unbranded executive-deck template
 - An attendee workbook and presenter lesson plan, both rendered from `curriculum/*.md`
-- A TutorialKit content package: 5 parts, 18 lessons, under `tutorialkit/`
+- An interactive tutorial: 5 parts, 18 lessons, under `site/src/content/docs/tutorial/`
 - **Skill Studio**, a self-contained companion mini-app under `skill-studio/`
 
 Everything here is static HTML, CSS, and markdown. There is no build step, no `package.json` at
@@ -87,8 +87,8 @@ Serve the project root over HTTP and open the HTML files — any static server w
 npx serve .
 ```
 
-The workbook, lesson plan, and TutorialKit preview `fetch()` their markdown at runtime, so
-opening them from `file://` renders blank pages.
+The workbook and lesson plan `fetch()` their markdown at runtime, so opening them from
+`file://` renders blank pages.
 
 ## Layout
 
@@ -100,7 +100,7 @@ See [AGENTS.md](AGENTS.md) for the complete table. Highlights:
 | `ai-fluency-executive-deck.html`, `techdays-executive-meeting.html` | Executive decks |
 | `lab-workbook.html`, `lesson-plan.html` | Rendered from `curriculum/*.md` |
 | `curriculum/` | Source of truth for all workbook and lesson-plan prose |
-| `tutorialkit/` | Drop-in content package for a real TutorialKit scaffold |
+| `site/` | The Astro/Starlight site, including the 18 tutorial lessons and their starter files |
 | `skill-studio/` | Self-contained "Patterson — Skill Studio" companion app |
 | `assets/brand/` | Patterson logos, wave background, value-prop image |
 | `_ds/patterson-design-system-3534f94f-a7e6-4612-81d4-6e830716f07d/` | The design-system snapshot this project binds to |

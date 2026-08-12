@@ -1,5 +1,12 @@
 # HANDOFF.md — Claude Code handoff
 
+> [!WARNING]
+> **Superseded 2026-08-12 — do not execute this brief.** It asks for a real TutorialKit scaffold.
+> TutorialKit was retired because `@tutorialkit/astro@1.6.0` hard-pins Astro 4, which carries
+> unpatched XSS/SSRF advisories with no upstream Astro-5+ path. The 5 parts and 18 lessons were
+> ported to Astro/Starlight and now ship from `site/` as committed content. This file is kept as a
+> historical record of the original plan. See [AGENTS.md](AGENTS.md) for the current state.
+
 A one-shot prompt for a Claude Code session. Paste the **PROMPT** section into a fresh Claude Code conversation with this directory as the working directory. Once the build is verified, this file can be deleted or moved to `archive/`.
 
 ---
