@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="docs/assets/banner.svg" width="100%" alt="TechDays Lab Workshop — Patterson Companies">
+<img src="docs/assets/banner.webp" width="100%" alt="TechDays Lab Workshop — Patterson Companies">
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/brand/patterson-logo-white.svg">
