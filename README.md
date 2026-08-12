@@ -23,6 +23,7 @@ skills, plugins, and MCP.
 
 ## Table of contents
 
+- [Live site](#live-site)
 - [What this is](#what-this-is)
 - [Screenshots](#screenshots)
 - [Provenance](#provenance)
@@ -32,6 +33,13 @@ skills, plugins, and MCP.
 - [Brand asset re-encode (2026-08-12)](#brand-asset-re-encode-2026-08-12)
 - [Exclusions](#exclusions)
 - [Staleness](#staleness)
+
+## Live site
+
+**[techdays.dev](https://techdays.dev)** — a half-day, hands-on training lab on configuring AI
+coding agents: AGENTS.md, commands, skills, plugins, and MCP.
+
+<img src="docs/screenshots/site-home.webp" width="100%" alt="TechDays: AI Fluency documentation site home page">
 
 ## What this is
 
