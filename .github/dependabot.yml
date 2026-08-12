@@ -1,0 +1,12 @@
+# Dependabot configuration — this repo has no package manifest (no build step,
+# no package.json), so the only real dependency surface is the GitHub Actions
+# used by the CI workflows.
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    groups:
+      ci-actions:
+        patterns: ["*"]
