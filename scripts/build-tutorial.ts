@@ -34,10 +34,15 @@ import { fileURLToPath } from 'node:url';
 const ROOT = fileURLToPath(new URL('..', import.meta.url));
 const SRC = join(ROOT, 'tutorialkit/src/content/tutorial');
 const DEST = join(ROOT, 'site/src/content/docs/tutorial');
-// Where the passthrough copy of tutorialkit/ lands at deploy time (the Pages
-// workflow copies tutorialkit/ to the site root unchanged, at its current
-// path — see .github/workflows/pages.yml).
-const PASSTHROUGH_PREFIX = '/tutorialkit/src/content/tutorial';
+// Where each lesson's starter files are served from. They live in
+// site/public/tutorial-files/<part>/<lesson>/** and are committed, so the
+// links survive the removal of the TutorialKit source package.
+const FILES_PREFIX = '/tutorial-files';
+
+// Stamped into every generated page so the ported tree is self-describing once
+// the source package and this script are gone.
+const PROVENANCE =
+  '<!-- Ported from the TutorialKit content package 2026-08-12; now canonical here. -->\n\n';
 
 const EXPECTED_PARTS = 5;
 const EXPECTED_LESSONS = 18;
@@ -128,7 +133,7 @@ for (const partSlug of partSlugs) {
 
   writeFileSync(
     join(destPartDir, 'index.md'),
-    frontmatterBlock({ title: partTitle }) + indexLines.join('\n') + '\n',
+    frontmatterBlock({ title: partTitle }) + PROVENANCE + indexLines.join('\n') + '\n',
   );
   partCount += 1;
 
@@ -146,12 +151,15 @@ for (const partSlug of partSlugs) {
       out += '\n## Files used in this lesson\n\n';
       for (const relPath of files) {
         const posixRel = relPath.split(/\\/).join('/');
-        const href = `${PASSTHROUGH_PREFIX}/${partSlug}/${lessonSlug}/_files/${posixRel}`;
+        const href = `${FILES_PREFIX}/${partSlug}/${lessonSlug}/${posixRel}`;
         out += `- [\`${posixRel}\`](${href})\n`;
       }
     }
 
-    writeFileSync(join(destPartDir, `${lessonSlug}.md`), frontmatterBlock({ title }) + out);
+    writeFileSync(
+      join(destPartDir, `${lessonSlug}.md`),
+      frontmatterBlock({ title }) + PROVENANCE + out,
+    );
     lessonCount += 1;
   }
 }
