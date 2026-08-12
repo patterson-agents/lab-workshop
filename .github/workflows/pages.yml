@@ -21,13 +21,58 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Setup bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Install site dependencies (frozen)
+        working-directory: site
+        run: bun install --frozen-lockfile
+
+      - name: Port TutorialKit content to Starlight
+        run: node scripts/build-tutorial.ts
+
+      - name: Build site
+        working-directory: site
+        run: bun run build
+
+      - name: Compose Pages artifact
+        run: |
+          set -euo pipefail
+          out="$(mktemp -d)"
+
+          # Passthrough materials at their current paths — the deck, executive
+          # decks, workbook, lesson plan, TutorialKit preview, Skill Studio,
+          # curriculum source, docs, and the design-system snapshot. Copied
+          # first so the Starlight build below wins any path collision
+          # (notably the old hand-authored root index.html).
+          shopt -s nullglob
+          for f in *.html *.css *.js *.jsx; do
+            cp "$f" "$out/"
+          done
+          for d in assets _ds skill-studio tk-app tutorialkit curriculum docs; do
+            if [ -d "$d" ]; then cp -r "$d" "$out/"; fi
+          done
+
+          # The Starlight build is the new site root; it overwrites index.html
+          # and anything else it owns.
+          cp -r site/dist/. "$out/"
+
+          echo "artifact_dir=$out" >> "$GITHUB_ENV"
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'
+          path: ${{ env.artifact_dir }}
 
   deploy:
     needs: build
