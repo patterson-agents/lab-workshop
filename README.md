@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="docs/assets/banner.svg" width="100%" alt="TechDays Lab Workshop — Patterson Companies">
+
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/brand/patterson-logo-white.svg">
   <img src="assets/brand/patterson-logo-navy.svg" alt="Patterson Companies" width="260">
@@ -22,10 +24,12 @@ skills, plugins, and MCP.
 ## Table of contents
 
 - [What this is](#what-this-is)
+- [Screenshots](#screenshots)
 - [Provenance](#provenance)
 - [Running it locally](#running-it-locally)
 - [Layout](#layout)
 - [Substitutions made on import](#substitutions-made-on-import)
+- [Brand asset re-encode (2026-08-12)](#brand-asset-re-encode-2026-08-12)
 - [Exclusions](#exclusions)
 - [Staleness](#staleness)
 
@@ -42,6 +46,21 @@ The training package for **"TechDays: AI Fluency – Agentic Agents,"** a half-d
 Everything here is static HTML, CSS, and markdown. There is no build step, no `package.json` at
 the root, no framework, and no test suite. See [AGENTS.md](AGENTS.md) for the full file-by-file
 layout, the design-system binding, and editing conventions.
+
+## Screenshots
+
+| | |
+|---|---|
+| <img src="docs/screenshots/deck-title.webp" width="420" alt="the 35-slide projected deck's title slide"><br>**Deck title** — the opening slide of `ai-fluency-agentic-agents.html`. | <img src="docs/screenshots/lab-workbook.webp" width="420" alt="the rendered attendee lab workbook"><br>**Lab workbook** — the attendee workbook rendered from `curriculum/*.md`. |
+
+> [!NOTE]
+> **Skill Studio has no screenshot yet.** A capture was attempted but came back a single flat
+> color with no content (`docs/screenshots/skill-studio.webp`, 4 KB, zero pixel variance) — the
+> app under `skill-studio/` almost certainly needs to finish loading (or be captured after
+> interaction) before a screenshot is useful. The blank file was removed rather than committed;
+> re-capture against a live, fully-rendered instance of the app.
+
+## Provenance
 
 ## Provenance
 
@@ -84,12 +103,32 @@ Two brand images were swapped for optimized versions already produced against th
 source files in PR #9 of `patterson-design-plugins` (verified by matching aspect ratio and
 content before substitution — dimensions changed, the images did not):
 
-| File | Before | After |
+| File | Before | After (PR #9, at import) |
 |---|---|---|
 | `assets/brand/value-prop.webp` | 2754×1000, 2.6 MB | 1600×581, 240 KB |
 | `assets/brand/wave-bg-navy.webp` | 3840×2160, 360 KB | 1920×1080, 6.7 KB |
 
+> [!NOTE]
+> These PR #9 figures are historical — see
+> [Brand asset re-encode (2026-08-12)](#brand-asset-re-encode-2026-08-12) below for the current
+> files. PR #9's variants were over-crushed for this project's full-width usage; they have since
+> been replaced.
+
 `assets/lab-screenshot.png` (305 KB) was left as-is.
+
+## Brand asset re-encode (2026-08-12)
+
+Both PR #9 substitutions above were re-encoded straight from the claude.ai/design export
+originals — not from the already-lossy PR #9 files — at up to 2560px wide:
+
+| File | Before (PR #9) | After (2560px re-encode from export original) |
+|---|---|---|
+| `assets/brand/wave-bg-navy.webp` | 1920×1080, 6.7 KB | 2560×1440, 18 KB |
+| `assets/brand/value-prop.webp` | 1600×581, 240 KB | 2560×930, 181 KB |
+
+See [REFERENCES.md](REFERENCES.md) for the full provenance note, and
+[`patterson-design-system`'s equivalent section](https://github.com/patterson-agents/patterson-design-system/blob/main/README.md#brand-asset-re-encode-2026-08-12)
+for the sibling repo this asset pair also lives in.
 
 ## Exclusions
 
