@@ -1,5 +1,15 @@
 # AGENTS.md
 
+> [!WARNING]
+> **Staleness (documented 2026-08-12).** This repository is a claude.ai/design handoff export,
+> not the full predecessor project. `archive/`, `reference/`, `screenshots/`, and
+> `.claude/skills/` — all described below — are **absent from this export**. Additionally:
+> `uploads/` was present in the export but excluded here (reference-only per its own note in this
+> file, and the `.pptx` it carries is duplicated in the `patterson-design-system` bundle); and the
+> font binaries the `_ds/` note below says "all resolve" were stripped from `_ds/…/assets/fonts/`
+> (licensing of self-hosted Proxima Nova is unconfirmed — see the root [README](README.md)). Treat
+> every claim below about those five paths as describing the *source* project, not this checkout.
+
 Training materials for **"TechDays: AI Fluency - Agentic Agents,"** a half-day hands-on lab on
 configuring AI coding agents (AGENTS.md · Commands · Skills · Plugins · MCP).
 
