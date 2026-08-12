@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TechDays Executive Meeting — Patterson Companies</title>
+<link rel="stylesheet" href="_ds/patterson-design-system-3534f94f-a7e6-4612-81d4-6e830716f07d/styles.css">
+<style>
+  deck-stage:not(:defined){visibility:hidden}
+  /* =========================================================
+     TechDays Executive Meeting — Patterson Executive Deck tokens
+     ========================================================= */
+  :root{
+    --font-display: var(--font-sans);
+    --font-body:    var(--font-sans);
+
+    --type-scale: 1;
+    --type-display:  calc(6rem    * var(--type-scale));
+    --type-title:    calc(3.75rem * var(--type-scale));
+    --type-h2:       calc(2.75rem * var(--type-scale));
+    --type-subtitle: calc(1.875rem* var(--type-scale));
+    --type-body:     calc(1.5rem  * var(--type-scale));
+    --type-small:    calc(1.25rem * var(--type-scale));
+    --type-eyebrow:  calc(1.125rem* var(--type-scale));
+    --type-mono-lg:  calc(1.375rem* var(--type-scale));
+    --type-mono:     calc(1.125rem* var(--type-scale));
+
+    --pad-top: 72px; --pad-bottom: 56px; --pad-x: 110px; --gap-item: 28px; --rule-w: 1.5px;
+
+    /* Light (default) — white paper, navy ink, sky accent */
+    --paper:    #ffffff;
+    --paper-2:  var(--pat-gray-50, #f6f7f8);
+    --paper-3:  var(--pat-gray-100, #ECECEC);
+    --ink:      var(--pat-navy, #003767);
+    --ink-2:    var(--pat-gray-700, #46464a);
+    --ink-dim:  var(--pat-gray-600, #58585B);
+    --ink-faint:var(--pat-gray-400, #a3a3a7);
+    --rule:     var(--pat-gray-200, #e2e2e4);
+    --rule-2:   var(--pat-gray-300, #c9c9cc);
+    --accent:   var(--pat-sky, #00A8E1);
+    --accent-2: var(--pat-blue, #147EC2);
+    --stage-bg: #071a30;
+  }
+
+  /* Navy slides (cover / dividers / emphasis) */
+  .slide-navy{
+    --paper:    var(--pat-navy, #003767);
+    --paper-2:  #0a2d52;
+    --paper-3:  #0e3358;
+    --ink:      #ffffff;
+    --ink-2:    rgba(255,255,255,0.84);
+    --ink-dim:  rgba(255,255,255,0.62);
+    --ink-faint:rgba(255,255,255,0.45);
+    --rule:     rgba(255,255,255,0.18);
+    --rule-2:   rgba(255,255,255,0.30);
+    --accent:   var(--pat-sky, #00A8E1);
+    --accent-2: var(--pat-blue-light, #6DCFF6);
+  }
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html,body{ height:100%; }
+  body{
+    background: var(--paper); color: var(--ink);
+    font-family: var(--font-body); font-size: var(--type-body); line-height:1.45;
+    -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+  }
+  deck-stage{ background: var(--stage-bg); }
+  deck-stage section{
+    background: var(--paper); color: var(--ink);
+    font-family: var(--font-body); position:relative; overflow:hidden;
+  }
+  deck-stage section > *{ position:relative; z-index:1; }
+
+  /* slide chrome */
+  .frame{ position:absolute; inset:0; padding: var(--pad-top) var(--pad-x) var(--pad-bottom); display:flex; flex-direction:column; }
+  .head{ display:flex; justify-content:space-between; align-items:baseline; font-family:var(--font-mono); font-size:var(--type-eyebrow); letter-spacing:.14em; text-transform:uppercase; color:var(--ink-dim); padding-bottom:22px; border-bottom:var(--rule-w) solid var(--rule); }
+  .head .crumb{ display:flex; gap:28px; align-items:baseline; }
+  .head .crumb .dot{ width:7px; height:7px; background:var(--accent); border-radius:50%; display:inline-block; transform:translateY(-3px); }
+  .head .pg{ color:var(--ink-faint); }
+  .foot{ margin-top:auto; padding-top:22px; border-top:var(--rule-w) solid var(--rule); display:flex; justify-content:space-between; align-items:center; font-family:var(--font-mono); font-size:var(--type-eyebrow); letter-spacing:.14em; text-transform:uppercase; color:var(--ink-dim); }
+  .foot .row{ display:flex; gap:32px; align-items:baseline; }
+  .foot .col-label{ color:var(--ink-faint); margin-right:10px; }
+  .foot-logo{ height:24px; width:auto; display:block; }
+  .body{ flex:1 1 auto; display:flex; flex-direction:column; justify-content:flex-start; padding:40px 0 28px; min-height:0; overflow:hidden; }
+
+  /* type primitives */
+  .eyebrow{ font-family:var(--font-mono); font-size:var(--type-eyebrow); letter-spacing:.18em; text-transform:uppercase; color:var(--accent); }
+  .title{ font-family:var(--font-display); font-weight:800; font-size:var(--type-title); line-height:1.04; letter-spacing:-0.02em; color:var(--ink); }
+  .title em{ font-style:normal; color:var(--accent); font-weight:800; }
+  .subtitle{ font-family:var(--font-display); font-weight:400; font-style:normal; font-size:var(--type-subtitle); line-height:1.2; color:var(--ink-2); max-width:1400px; }
+  .body-copy{ font-size:var(--type-body); line-height:1.5; color:var(--ink-2); max-width:1400px; }
+  .body-copy + .body-copy{ margin-top:24px; }
+  .small{ font-size:var(--type-small); color:var(--ink-dim); }
+  .mono{ font-family:var(--font-mono); }
+  .accent{ color:var(--accent); }
+  .title-rule{ width:110px; height:6px; margin-top:28px; background:var(--accent); border-radius:999px; }
+
+  /* cover */
+  .cover-head{ display:flex; justify-content:space-between; align-items:center; padding-bottom:22px; border-bottom:var(--rule-w) solid var(--rule); font-family:var(--font-mono); font-size:var(--type-eyebrow); letter-spacing:.14em; text-transform:uppercase; color:var(--ink-dim); }
+  .cover-logo{ height:36px; width:auto; display:block; }
+  .cover-head .stamp{ display:inline-block; padding:8px 14px 6px; letter-spacing:.2em; }
+  .cover-body{ flex:1 1 auto; display:grid; grid-template-columns:1fr auto; align-items:end; padding:50px 0 32px; min-height:0; }
+  .cover-title{ font-family:var(--font-display); font-weight:800; font-size:170px; line-height:0.96; letter-spacing:-0.03em; color:var(--ink); }
+  .cover-title .accent{ font-weight:800; color:var(--accent); }
+  .cover-sub{ font-family:var(--font-display); font-style:normal; font-weight:500; font-size:36px; color:var(--ink-2); margin-top:30px; max-width:1150px; line-height:1.25; }
+  .cover-foot{ display:grid; grid-template-columns:repeat(4,1fr); gap:36px; padding-top:22px; border-top:var(--rule-w) solid var(--rule); font-family:var(--font-mono); font-size:var(--type-mono); color:var(--ink); }
+  .cover-foot .field{ display:flex; flex-direction:column; gap:6px; }
+  .cover-foot .lbl{ font-size:var(--type-eyebrow); letter-spacing:.18em; text-transform:uppercase; color:var(--ink-faint); }
+  .cover-foot .val{ color:var(--ink); }
+
+  /* layout helpers */
+  .two-col{ display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:start; }
+  .two-col.narrow-left{ grid-template-columns:7fr 9fr; }
+  .two-col.narrow-right{ grid-template-columns:9fr 7fr; }
+  .card-grid{ display:grid; gap:24px; }
+  .card-grid.cols-2{ grid-template-columns:1fr 1fr; }
+  .card-grid.cols-3{ grid-template-columns:repeat(3,1fr); }
+  .card-grid.cols-5{ grid-template-columns:repeat(5,1fr); }
+  .card{ border:1.5px solid var(--rule); border-top:4px solid var(--accent); border-radius:10px; padding:28px 28px 26px; background:var(--paper-2); display:flex; flex-direction:column; gap:18px; min-height:0; }
+  .card .num{ font-family:var(--font-mono); font-size:var(--type-eyebrow); letter-spacing:.18em; color:var(--accent); text-transform:uppercase; }
+  .card .name{ font-family:var(--font-display); font-weight:800; font-size:44px; line-height:1.02; letter-spacing:-0.01em; color:var(--ink); }
+  .card .desc{ font-size:var(--type-small); line-height:1.4; color:var(--ink-2); }
+  .card .bd-list{ list-style:none; margin:4px 0 0; padding:0; display:flex; flex-direction:column; gap:14px; }
+  .card .bd-list li{ position:relative; padding-left:26px; font-size:var(--type-small); line-height:1.35; color:var(--ink-2); }
+  .card .bd-list li::before{ content:""; position:absolute; left:2px; top:0.55em; width:9px; height:9px; background:var(--accent); border-radius:50%; }
+
+  /* matrix table */
+  .matrix{ width:100%; border-collapse:collapse; font-size:var(--type-small); }
+  .matrix th,.matrix td{ text-align:left; vertical-align:top; padding:16px 22px; border-bottom:1px solid var(--rule); }
+  .matrix thead th{ font-family:var(--font-mono); font-size:var(--type-eyebrow); letter-spacing:.14em; text-transform:uppercase; color:var(--ink-faint); border-bottom:2px solid var(--rule-2); padding-bottom:14px; padding-top:0; }
+  .matrix tbody tr:last-child td{ border-bottom:none; }
+  .matrix .task{ font-family:var(--font-display); font-weight:700; font-size:33px; line-height:1.05; color:var(--ink); }
+  .matrix .surface{ font-family:var(--font-mono); color:var(--accent); font-size:23px; letter-spacing:.02em; }
+  .matrix .why{ color:var(--ink-2); }
+
+  /* pullquote */
+  .pullquote{ font-family:var(--font-display); font-size:74px; font-style:normal; font-weight:800; line-height:1.12; color:var(--ink); letter-spacing:-0.02em; max-width:1640px; }
+  .pullquote .accent{ color:var(--accent); }
+  .quote-mark{ font-family:var(--font-display); font-weight:800; font-size:120px; line-height:0.6; color:var(--accent); display:block; }
+
+  /* code block */
+  .codeblock{ background:var(--paper-3); border:1.5px solid var(--rule); border-radius:10px; padding:26px 32px 24px; font-family:var(--font-mono); font-size:23px; line-height:1.5; color:var(--ink); white-space:pre; overflow:hidden; }
+  .codeblock .c{ color:var(--ink-faint); }
+
+  /* numbered list rows */
+  .list{ display:flex; flex-direction:column; gap:var(--gap-item); }
+  .list-item{ display:grid; grid-template-columns:190px 1fr; gap:32px; align-items:baseline; }
+  .list-item .n{ font-family:var(--font-mono); color:var(--accent); font-size:var(--type-eyebrow); letter-spacing:.14em; text-transform:uppercase; padding-top:8px; }
+  .list-item .t{ font-family:var(--font-display); font-weight:700; font-size:40px; line-height:1.05; color:var(--ink); }
+  .list-item .d{ color:var(--ink-2); margin-top:10px; font-size:var(--type-small); line-height:1.4; }
+
+  .checkpoint{ border:1.5px solid var(--rule-2); border-radius:10px; background:var(--paper-2); padding:26px 32px; display:flex; gap:28px; align-items:baseline; }
+  .checkpoint .ck{ font-family:var(--font-mono); font-size:var(--type-eyebrow); letter-spacing:.18em; text-transform:uppercase; color:var(--accent); white-space:nowrap; }
+  .checkpoint .tx{ font-size:var(--type-small); color:var(--ink-2); line-height:1.45; }
+
+  /* intro / role */
+  .role-tags{ display:flex; flex-wrap:wrap; gap:14px; margin-top:30px; }
+  .role-tag{ font-family:var(--font-mono); font-size:var(--type-eyebrow); letter-spacing:.1em; text-transform:uppercase; color:var(--ink-dim); border:1.5px solid var(--rule-2); border-radius:999px; padding:9px 18px 7px; white-space:nowrap; }
+
+  /* building-blocks layer list */
+  .layer-list{ list-style:none; margin:30px 0 0; padding:0; display:flex; flex-direction:column; gap:6px; }
+  .layer-list li{ position:relative; padding:18px 0 18px 36px; font-family:var(--font-display); font-weight:700; font-size:42px; line-height:1.02; color:var(--ink); border-bottom:1.5px solid var(--rule); }
+  .layer-list li:last-child{ border-bottom:none; }
+  .layer-list li::before{ content:""; position:absolute; left:2px; top:50%; transform:translateY(-50%); width:13px; height:13px; background:var(--accent); border-radius:50%; }
+
+  /* stacked build cards */
+  .stack{ display:flex; flex-direction:column; gap:16px; }
+  .stack-card{ border:1.5px solid var(--rule); border-left:4px solid var(--accent); border-radius:10px; background:var(--paper-2); padding:18px 26px; display:flex; flex-direction:column; gap:11px; flex:0 0 auto; }
+  .stack-card .sc-head{ display:flex; flex-direction:column; align-items:flex-start; gap:5px; }
+  .stack-card .num{ font-family:var(--font-mono); font-size:var(--type-eyebrow); letter-spacing:.16em; text-transform:uppercase; color:var(--accent); white-space:nowrap; }
+  .stack-card .sc-name{ font-family:var(--font-display); font-weight:800; font-size:29px; line-height:1.05; color:var(--ink); }
+  .sc-tags{ list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; gap:9px; }
+  .sc-tags li{ font-size:19px; line-height:1; color:var(--ink-2); background:var(--paper-3); border:1px solid var(--rule); border-radius:999px; padding:9px 15px; }
+
+  /* image slot frame */
+  image-slot{ display:block; }
+
+  @media print{ body{ background:white; } }
+</style>
+</head>
+<body>
+
+<deck-stage width="1920" height="1080" thumbnails="true">
+
+<!-- ====================================================
+     01 · Cover
+     ==================================================== -->
+<section data-label="01 Title" data-screen-label="01 Title" class="cover slide-navy" data-speaker-notes="Welcome and framing for the meeting. Presenters: Daniel and Lauren.
+
+Open the room:
+&middot; Thank everyone for the time; this is a working conversation, not a sales pitch.
+&middot; State the purpose in one line: we want to adopt agentic AI across the organization, and we want to do it safely and by default.
+&middot; Preview the agenda so people know a Q&amp;A is reserved at the end: introductions, the vision, how we'd implement it, and questions. We'll speak to our assumptions and expectations along the way.
+
+Set the tone:
+&middot; This is about controlling complexity and keeping governance in front, not chasing hype.
+&middot; We will keep each section short and leave room for the security and technical discussion at the end.">
+  <div class="frame">
+    <div class="cover-head">
+      <div class="left" style="display:flex; align-items:center; gap:22px;">
+        <img class="cover-logo" src="assets/brand/patterson-logo-white.svg" alt="Patterson">
+        <span class="stamp">Executive Briefing</span>
+      </div>
+      <div class="right">TechDays · 01</div>
+    </div>
+
+    <div class="cover-body" style="grid-template-columns: 1fr; align-items: start; align-content: space-between;">
+      <div>
+        <h1 class="cover-title" style="font-size: 150px;">TechDays
+<span class="accent">Executive Meeting</span></h1>
+        <p class="cover-sub">Adopting agentic AI across the organization, safely and by default.</p>
+      </div>
+      <div class="two-col narrow-left" style="gap: 100px; margin-top: 52px; width: 100%;">
+        <div>
+          <p class="eyebrow">Purpose</p>
+          <p class="body-copy" style="margin-top: 18px;">A working conversation with technical and security leadership on bringing agentic AI to Patterson Companies, and on the guardrails that let us do it with confidence.</p>
+        </div>
+        <div>
+          <p class="eyebrow">Agenda</p>
+          <p class="body-copy" style="margin-top: 18px;">Introductions &middot; Vision &middot; Implementation &middot; Q&amp;A</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cover-foot" style="grid-template-columns: repeat(3,1fr);">
+      <div class="field">
+        <span class="lbl">Presenters</span>
+        <span class="val">Daniel Bodnar &middot; Lauren Larson</span>
+      </div>
+      <div class="field">
+        <span class="lbl">Audience</span>
+        <span class="val">Technical &amp; Security Leadership</span>
+      </div>
+      <div class="field">
+        <span class="lbl">Format</span>
+        <span class="val">Executive briefing &middot; discussion</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     02 · Introductions (L)
+     ==================================================== -->
+<section data-label="02 Introductions" data-screen-label="02 Introductions" data-speaker-notes="Lauren presents this slide.
+
+Introduce Daniel:
+&middot; Daniel Bodnar is a technology leader and AI innovator with more than two decades of experience in software, infrastructure, and cloud platforms.
+&middot; He has pioneered enterprise AI agent ecosystems and intelligent automation that change how organizations build, operate, and scale technology.
+&middot; His focus is making advanced AI practical, secure, and impactful for real business challenges; that combination of practical and secure is exactly the lens for today's conversation.
+
+Keep it brief; hand back to Daniel for the vision.">
+  <div class="frame">
+    <div class="head">
+      <div class="crumb"><span class="dot"></span><span>TechDays Executive Meeting</span><span>Introductions</span></div>
+      <div class="pg">02</div>
+    </div>
+    <div class="body">
+      <div class="two-col narrow-left" style="gap: 90px; align-items: center; flex: 1 1 auto;">
+        <div>
+          <p class="eyebrow">Introductions</p>
+          <h2 class="title" style="font-size: 88px; margin-top: 16px;">Daniel <em>Bodnar</em></h2>
+          <p class="subtitle" style="margin-top: 22px;">Technology leader &amp; AI innovator</p>
+          <div class="role-tags">
+            <span class="role-tag">20+ years</span>
+            <span class="role-tag">Software</span>
+            <span class="role-tag">Infrastructure</span>
+            <span class="role-tag">Cloud platforms</span>
+          </div>
+        </div>
+        <div>
+          <p class="body-copy">Daniel Bodnar is a technology leader and AI innovator with more than two decades of experience in software, infrastructure, and cloud platforms.</p>
+          <p class="body-copy">He has pioneered enterprise AI agent ecosystems and intelligent automation solutions that transform how organizations build, operate, and scale technology.</p>
+          <p class="body-copy">His focus is making advanced AI practical, secure, and impactful for real-world business challenges.</p>
+        </div>
+      </div>
+    </div>
+    <div class="foot">
+      <div class="row"><span><span class="col-label">Presented by</span>Lauren Larson</span></div>
+      <img class="foot-logo" src="assets/brand/patterson-logo-navy.svg" alt="Patterson">
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     03 · Vision (D) — navy emphasis
+     ==================================================== -->
+<section data-label="03 Vision" data-screen-label="03 Vision" class="slide-navy" data-speaker-notes="Daniel presents this slide.
+
+Frame the assumptions first, speaking over the vision:
+&middot; We've heard about the benefits of agentic AI in the enterprise, and we're interested in exploring its adoption at Patterson Companies.
+&middot; We've also heard about the risks and dangers of agentic AI in enterprise settings, and we're concerned about pursuing it safely and securely.
+&middot; Both are true at once. We expect to capture the benefits and manage the risks together, not trade one for the other.
+
+Then state the vision plainly; let the two statements stand on their own.
+&middot; We want to experience the benefits of adopting secure agentic AI across the organization, while enforcing corporate compliance and guardrails without hindering innovation.
+&middot; And the principle that makes it real: we must make secure and compliant the default. Doing the right thing has to be easier than doing the wrong thing.
+
+Land the second line slowly; it is the test for every decision that follows. If the secure path is also the easy path, adoption and governance stop competing.">
+  <div class="frame">
+    <div class="head">
+      <div class="crumb"><span class="dot"></span><span>TechDays Executive Meeting</span><span>Vision</span></div>
+      <div class="pg">03</div>
+    </div>
+    <div class="body" style="justify-content: center;">
+      <p class="eyebrow">Vision</p>
+      <span class="quote-mark" style="margin-top: 28px;">&ldquo;</span>
+      <p class="pullquote" style="margin-top: 10px;">We want to experience the benefits of adopting secure agentic AI across the organization, while enforcing corporate compliance and guardrails <span class="accent">without hindering innovation</span>.</p>
+      <p class="pullquote" style="font-size: 50px; margin-top: 48px; color: var(--ink-2);">We must make secure and compliant <span class="accent">the default</span>. Doing the right thing has to be easier than doing the wrong thing.</p>
+    </div>
+    <div class="foot">
+      <div class="row"><span><span class="col-label">Presented by</span>Daniel Bodnar</span></div>
+      <img class="foot-logo" src="assets/brand/patterson-logo-white.svg" alt="Patterson">
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     04 · Implementation — building blocks + what we build (D & L)
+     ==================================================== -->
+<section data-label="04 Implementation" data-screen-label="04 Implementation" data-speaker-notes="Daniel and Lauren present this together; Daniel frames the building blocks, Lauren owns what we're building.
+
+Left, the building blocks. These are the layers engineers learn to work with, from always-loaded context out to shared distribution:
+&middot; AGENTS.md, the baseline operating instructions, always in context.
+&middot; Rules, the constraints and standards the agent must follow.
+&middot; Skills, reusable on-demand expertise.
+&middot; Plugins, the way skills get packaged and versioned.
+&middot; Marketplace, how we distribute and govern them across teams.
+
+Right, what we're actually building with those blocks, grouped into three areas:
+&middot; Project Setup, Development Standards, and Tooling: linting, formatting, style guides, and editor standards.
+&middot; Expert Engineering Agents Specialists: targeted expertise for C# and .NET, full-stack web, and databases.
+&middot; DevOps and Infrastructure: code reviews and quality, security scanners, dependency scans, and auto issue triaging for failed pipelines.
+
+The point for leadership: these are not abstract concepts; they are the specific, reusable building blocks the team is producing.">
+  <div class="frame">
+    <div class="head">
+      <div class="crumb"><span class="dot"></span><span>TechDays Executive Meeting</span><span>Implementation</span></div>
+      <div class="pg">04</div>
+    </div>
+    <div class="body">
+      <p class="eyebrow">Implementation</p>
+      <h2 class="title" style="font-size: 56px; margin-top: 12px;">From building blocks to <em>working agents</em></h2>
+      <div class="title-rule"></div>
+      <div class="two-col narrow-left" style="gap: 80px; margin-top: 34px; align-items: start;">
+        <div>
+          <p class="eyebrow" style="color: var(--ink-faint);">Building blocks</p>
+          <ul class="layer-list">
+            <li>AGENTS.md</li>
+            <li>Rules</li>
+            <li>Skills</li>
+            <li>Plugins</li>
+            <li>Marketplace</li>
+          </ul>
+        </div>
+        <div>
+          <p class="eyebrow" style="color: var(--ink-faint); margin-bottom: 18px;">What we're building</p>
+          <div class="stack">
+            <div class="stack-card">
+              <div class="sc-head">
+                <span class="num">01 / Foundation</span>
+                <span class="sc-name">Project Setup, Development Standards &amp; Tooling</span>
+              </div>
+              <ul class="sc-tags">
+                <li>Linting</li>
+                <li>Formatting</li>
+                <li>Style guides</li>
+                <li>Editor standards</li>
+              </ul>
+            </div>
+            <div class="stack-card">
+              <div class="sc-head">
+                <span class="num">02 / Expertise</span>
+                <span class="sc-name">Expert Engineering Agents Specialists</span>
+              </div>
+              <ul class="sc-tags">
+                <li>C# and .NET</li>
+                <li>Full-stack web development</li>
+                <li>Databases</li>
+              </ul>
+            </div>
+            <div class="stack-card">
+              <div class="sc-head">
+                <span class="num">03 / Automation</span>
+                <span class="sc-name">DevOps and Infrastructure</span>
+              </div>
+              <ul class="sc-tags">
+                <li>Code reviews &amp; code quality</li>
+                <li>Security scanners</li>
+                <li>Dependency scans</li>
+                <li>Auto issue triaging for failed pipelines</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot">
+      <div class="row"><span><span class="col-label">Build areas</span>developer experience &rarr; engineering expertise &rarr; devops</span></div>
+      <img class="foot-logo" src="assets/brand/patterson-logo-navy.svg" alt="Patterson">
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     05 · Inside the lab — screenshot placeholder
+     ==================================================== -->
+
+
+<!-- ====================================================
+     06 · Implementation — what we need (D)
+     ==================================================== -->
+<section data-label="05 Inside the Lab" data-screen-label="05 Inside the Lab" data-speaker-notes="Daniel and Lauren present this slide.
+
+This is a live look at the hands-on lab environment attendees work in.
+&middot; Walk the screen briefly: this is where engineers configure their own agent setup and run the checkpoint exercises.
+&middot; Emphasize that everything on the prior slide is built and exercised right here, in a real repository, not in slides.
+&middot; Keep it short; the screenshot does the work.">
+  <div class="frame">
+    <div class="head">
+      <div class="crumb"><span class="dot"></span><span>TechDays Executive Meeting</span><span>Inside the Lab</span></div>
+      <div class="pg">05</div>
+    </div>
+    <div class="body" style="padding-bottom: 18px;">
+      <p class="eyebrow">Inside the lab</p>
+      <h2 class="title" style="font-size: 56px; margin-top: 12px;">A look inside the <em>hands-on lab</em></h2>
+      <div class="title-rule"></div>
+      <div style="flex: 1 1 auto; margin-top: 28px; min-height: 0; display: flex;">
+        <image-slot id="techdays-lab-screenshot" shape="rounded" radius="12" fit="contain" src="assets/lab-screenshot.png" placeholder="Drop the lab screenshot here" style="width: 100%; height: 100%; border: 1.5px solid var(--rule); border-radius: 12px; background: var(--pat-navy, #003767);"></image-slot>
+      </div>
+    </div>
+    <div class="foot">
+      <div class="row"><span><span class="col-label">Environment</span>real repository &middot; checkpoint exercises</span></div>
+      <img class="foot-logo" src="assets/brand/patterson-logo-navy.svg" alt="Patterson">
+    </div>
+  </div>
+</section><section data-label="06 What We Need" data-screen-label="06 What We Need" data-speaker-notes="Daniel presents the asks; this is the leadership decision.
+
+To run the session and stand up a safe environment that engineers can use immediately, during and after, we need two things in place:
+&middot; Claude Code with approved models enabled for every attendee.
+&middot; The GitHub estate, broken out: an enterprise marketplace repo for plugins and skills; a lab and workshop repo; github.com licenses so attendees can fork and contribute; Copilot licenses with approved models; and Actions and Codespaces.
+
+The point for leadership: with these in place, attendees don't just learn concepts; they configure their own environment and leave able to apply the patterns immediately. We'll send a one-page handout of these requirements.">
+  <div class="frame">
+    <div class="head">
+      <div class="crumb"><span class="dot"></span><span>TechDays Executive Meeting</span><span>Implementation &middot; What We Need</span></div>
+      <div class="pg">06</div>
+    </div>
+    <div class="body">
+      <p class="eyebrow">The asks</p>
+      <h2 class="title" style="font-size: 64px; margin-top: 14px;">What we need to <em>run it</em></h2>
+      <div class="title-rule"></div>
+      <div class="card-grid cols-2" style="margin-top: 48px; align-items: start;">
+        <div class="card">
+          <span class="num">01 / Platform</span>
+          <span class="name" style="font-size: 46px;">Claude Code</span>
+          <p class="desc">Approved models enabled for every attendee.</p>
+        </div>
+        <div class="card">
+          <span class="num">02 / Platform</span>
+          <span class="name" style="font-size: 46px;">GitHub</span>
+          <ul class="bd-list">
+            <li>Enterprise marketplace repo for plugins and skills</li>
+            <li>A lab &amp; workshop repo</li>
+            <li>github.com licenses so attendees can fork and contribute</li>
+            <li>Copilot licenses with approved models</li>
+            <li>Actions and Codespaces</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="foot">
+      <div class="row"><span><span class="col-label">For leadership</span>a one-page requirements handout will follow</span></div>
+      <img class="foot-logo" src="assets/brand/patterson-logo-navy.svg" alt="Patterson">
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     07 · Q&A (D) — navy close
+     ==================================================== -->
+<section data-label="07 Q&amp;A" data-screen-label="07 Q&amp;A" class="slide-navy" data-speaker-notes="Daniel closes and opens the floor.
+
+&middot; Thank the group and open the floor for technical and security questions.
+&middot; Invite the hard questions on trust boundaries, data access, permissions, and auditability; this is the part of the conversation we most want.
+&middot; Steer toward next steps: approving the environment asks, scoping a first cohort, and picking the teams and the timeline.
+
+Restate the principle as the closing thought: make secure and compliant the default, so the right thing is the easy thing.">
+  <div class="frame">
+    <div class="head">
+      <div class="crumb"><span class="dot"></span><span>TechDays Executive Meeting</span><span>Q&amp;A</span></div>
+      <div class="pg">07</div>
+    </div>
+    <div class="body" style="justify-content: center;">
+      <p class="eyebrow">Q&amp;A &amp; next steps</p>
+      <h2 class="title" style="font-size: 128px; margin-top: 22px;">Questions <em>welcome</em>.</h2>
+      <p class="subtitle" style="margin-top: 30px; max-width: 1500px;">Open floor for your technical and security questions, and a discussion of next steps.</p>
+      <div class="checkpoint" style="margin-top: 44px; max-width: 1500px;">
+        <span class="ck">Next steps</span>
+        <span class="tx">Approve the environment asks &middot; scope a first cohort &middot; choose the teams and timeline.</span>
+      </div>
+    </div>
+    <div class="foot">
+      <div class="row"><span><span class="col-label accent">Q&amp;A</span>Daniel Bodnar &middot; Lauren Larson</span></div>
+      <img class="foot-logo" src="assets/brand/patterson-logo-white.svg" alt="Patterson">
+    </div>
+  </div>
+</section>
+
+</deck-stage>
+
+<template id="__bundler_thumbnail">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <rect width="400" height="400" fill="#003767"/>
+  <g transform="translate(150,140)" fill="none" stroke="#00A8E1" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="50" cy="50" r="46"/>
+    <path d="M30 52 L46 68 L74 36"/>
+  </g>
+  <text x="200" y="300" text-anchor="middle" fill="#ffffff" font-family="Arial,sans-serif" font-size="22" font-weight="bold" letter-spacing="1">TechDays</text>
+  <text x="200" y="332" text-anchor="middle" fill="#00A8E1" font-family="Arial,sans-serif" font-size="16" letter-spacing="3">EXECUTIVE MEETING</text>
+</svg>
+</template>
+
+<script src="deck-stage.js"></script>
+<script src="image-slot.js"></script>
+</body></html>

@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>TechDays: AI Fluency - Agentic Agents · Executive Deck</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="ai-fluency-agentic-agents.css" />
+
+<template id="__bundler_thumbnail">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <rect width="400" height="400" fill="#003767"/>
+  <g transform="translate(120,120)" fill="none" stroke="#00A8E1" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="0" y="0" width="160" height="160" rx="12" stroke="rgba(255,255,255,0.35)"/>
+    <line x1="40" y1="60" x2="120" y2="60"/>
+    <line x1="40" y1="100" x2="100" y2="100" stroke="rgba(255,255,255,0.35)"/>
+  </g>
+  <text x="200" y="322" text-anchor="middle" fill="#ffffff" font-family="system-ui,sans-serif" font-size="15" font-weight="700" letter-spacing="2">EXECUTIVE · AI AGENTS</text>
+</svg>
+</template>
+</head>
+<body>
+
+<deck-stage width="1920" height="1080" thumbnails="true">
+
+<!-- ====================================================
+     EX / 01 · Title, description, audience
+     ==================================================== -->
+<section data-label="01 Title" data-screen-label="01 Title" class="cover" data-speaker-notes="Keep your remarks to 2 min per slide.
+
+What this session is about:
+· This is a practical AI enablement session focused on helping engineers use AI as a force multiplier rather than a simple chatbot.
+· We introduce a framework for decomposing complex work into manageable, reusable building blocks.
+· Participants learn how modern agent systems are configured and extended using concepts such as instructions, commands, skills, plugins, and MCP servers.
+
+Who the session is for:
+· Engineers with little or no exposure to AI agents.
+· Engineers already using tools like Claude Code, Cursor, Copilot, or Codex.
+· Architects and technical leads looking to establish repeatable AI practices.
+
+Why it matters:
+· Many teams are experimenting with AI but struggle to move beyond ad hoc prompting.
+· This session provides a structured approach for scaling AI-assisted work.
+· The concepts are transferable across vendors and align with emerging industry standards such as AGENTS.md and MCP.">
+  <div class="frame">
+    <div class="cover-head">
+      <div class="left">
+        <span class="brand-mark" role="img" aria-label="Patterson Companies"></span>
+        <span class="stamp">Executive Briefing</span>
+        <span>Session Proposal</span>
+      </div>
+      <div class="right">EX / 01</div>
+    </div>
+
+    <div class="cover-body" style="grid-template-columns: 1fr; align-items: start; align-content: space-between;">
+      <div>
+        <h1 class="cover-title" style="font-size: 124px;">AI Fluency:
+<span class="accent">Agentic Agents</span></h1>
+        <p class="cover-sub">Using AI as a Force Multiplier Through Modular Problem Solving</p>
+      </div>
+      <div class="two-col narrow-left" style="gap: 100px; margin-top: 56px; width: 100%;">
+        <div>
+          <p class="eyebrow">Session Overview</p>
+          <p class="body-copy" style="margin-top: 18px;">Modern AI tools are most effective when complex problems are decomposed into smaller, reusable units of work. Engineers will learn how agentic AI systems can be configured, extended, and orchestrated to amplify productivity while maintaining control, consistency, and governance.</p>
+          <p class="body-copy" style="margin-top: 20px; font-family: var(--font-display); font-weight: 700; font-size: 28px; color: var(--ink);">The key to using AI effectively is not asking better questions; it&rsquo;s controlling complexity by breaking work into modular components.</p>
+        </div>
+        <div>
+          <p class="eyebrow">Audience</p>
+          <p class="body-copy" style="margin-top: 18px;">Engineering, Architecture, Platform, and Technical Leadership Teams</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cover-foot">
+      <div class="field">
+        <span class="lbl">Presenter</span>
+        <span class="val" data-tweak="speaker">Daniel Bodnar</span>
+      </div>
+      <div class="field">
+        <span class="lbl">Format</span>
+        <span class="val">Hands-on training · five modules</span>
+      </div>
+      <div class="field">
+        <span class="lbl">Runtime</span>
+        <span class="val">60–90 min · break included</span>
+      </div>
+      <div class="field">
+        <span class="lbl">Materials</span>
+        <span class="val">Slide Deck · Lab Workbook · Lesson Plan</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     EX / 02 · Takeaways
+     ==================================================== -->
+<section data-label="02 Takeaways" data-screen-label="02 Takeaways" data-speaker-notes="Keep your remarks to 2 min.
+
+Understand:
+· Introduce the five layers of agent configuration: AGENTS.md, Commands, Skills, Plugins, MCP Servers.
+· Explain how these layers work together to create increasingly capable AI systems.
+· Demonstrate that these concepts are transferable across tools and vendors.
+
+Apply:
+· Show attendees how to control complexity by decomposing work into smaller units.
+· Reinforce that effective AI usage is less about prompting and more about structuring problems appropriately.
+· Introduce the session's core question: &quot;Which layer does this belong in?&quot;
+
+Build:
+· Teach participants how to capture organizational knowledge as reusable skills.
+· Demonstrate how successful prompting patterns can become repeatable assets.
+· Highlight opportunities for standardization and knowledge sharing across engineering teams.
+
+Connect:
+· Explain how MCP enables AI agents to interact with external tools and live data.
+· Cover security considerations, trust boundaries, and governance implications.
+· Emphasize responsible use of enterprise integrations.">
+  <div class="frame">
+    <div class="head">
+      <div class="crumb"><span class="dot"></span><span>AI Fluency · Agentic Agents</span><span>Key Takeaways</span></div>
+      <div class="pg">EX / 02</div>
+    </div>
+    <div class="body">
+      <h2 class="title">Key <em>Takeaways</em></h2>
+      <div class="title-rule"></div>
+      <p class="body-copy" style="margin-top: 32px;">By the end of this session, attendees will:</p>
+      <div class="card-grid" style="grid-template-columns: repeat(4, 1fr); margin-top: 36px;">
+        <div class="card">
+          <span class="num">01</span>
+          <span class="name" style="font-size: 40px;">Understand</span>
+          <p class="desc">How modern AI agents are configured and extended.</p>
+        </div>
+        <div class="card">
+          <span class="num">02</span>
+          <span class="name" style="font-size: 40px;">Apply</span>
+          <p class="desc">A framework for breaking complex work into reusable components.</p>
+        </div>
+        <div class="card">
+          <span class="num">03</span>
+          <span class="name" style="font-size: 40px;">Build</span>
+          <p class="desc">Reusable skills and workflows that scale across teams.</p>
+        </div>
+        <div class="card">
+          <span class="num">04</span>
+          <span class="name" style="font-size: 40px;">Enforce</span>
+          <p class="desc">AI agents to enterprise tools and live data, securely.</p>
+        </div>
+      </div>
+    </div>
+    <div class="foot">
+      <div class="row"><span><span class="col-label">Core question</span>which layer does this belong in?</span></div>
+      <div>Executive Briefing</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     EX / 03 · Module breakdown
+     ==================================================== -->
+<section data-label="03 Module Breakdown" data-screen-label="03 Module Breakdown" data-speaker-notes="Keep your remarks to 2 min.
+
+The five modules form a deliberate ladder, from always-loaded context to external capability:
+1. AGENTS.md, the baseline: one file, always in context, and the cheapest configuration with the highest return.
+2. Commands, the interface: what the / menu actually is, and the discovery that custom commands are just skills.
+3. Skills, the core of the session: on-demand procedural knowledge and the open standard.
+4. Plugins, distribution: how skills (and hooks, agents, MCP configs) get packaged, versioned, and shared with a team.
+5. MCP, capability: tools and live data from outside the agent, and the only module that adds connections rather than files.
+
+Throughout, the recurring question &quot;which layer does this belong in?&quot; By the close, attendees should be able to place any configuration need into the right layer unprompted.">
+  <div class="frame">
+    <div class="head">
+      <div class="crumb"><span class="dot"></span><span>AI Fluency · Agentic Agents</span><span>Module Breakdown</span></div>
+      <div class="pg">EX / 03</div>
+    </div>
+    <div class="body">
+      <h2 class="title">Progressive <em>Learning Path</em></h2>
+      <div class="title-rule"></div>
+      <table class="matrix" style="margin-top: 40px;">
+        <thead>
+          <tr><th style="width: 200px;">Module</th><th style="width: 420px;">Focus</th><th>Outcome</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="surface">1</td><td class="task">AGENTS.md</td><td class="why">Create effective agent operating instructions.</td></tr>
+          <tr><td class="surface">2</td><td class="task">Commands</td><td class="why">Understand agent interfaces and workflows.</td></tr>
+          <tr><td class="surface">3</td><td class="task">Skills</td><td class="why">Build reusable organizational expertise.</td></tr>
+          <tr><td class="surface">4</td><td class="task">Plugins</td><td class="why">Package and distribute capabilities across teams.</td></tr>
+          <tr><td class="surface">5</td><td class="task">MCP Servers</td><td class="why">Connect agents to tools, APIs, and live data.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="foot">
+      <div class="row"><span><span class="col-label">Arc</span>always-loaded &rarr; invoked &rarr; on-demand &rarr; packaged &rarr; enforced</span></div>
+      <div>Executive Briefing</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     EX / 04 · Requirements and environment
+     ==================================================== -->
+<section data-label="04 Requirements" data-screen-label="04 Requirements" data-speaker-notes="Keep remarks to 2 min, possibly pause for feedback.
+
+This session requires approval for a working developer environment that attendees can use immediately during and after the workshop.
+
+We are asking for access to:
+· Claude Code with approved models enabled
+· GitHub and GitHub licenses for attendees
+· Copilot licenses with approved Claude/Fable models enabled
+· Forkable workshop repository
+· Enterprise marketplace repository for plugins and skills
+· GitHub Actions and Codespaces
+· Azure DevBoxes
+· Azure Foundry
+· MS Teams permissions for integrations and webhooks
+· A hosting target for web apps used in the workshop and E2E testing
+
+Additional tools used in the labs include VS Code Insiders, mise, bun, just, skills.sh, agentskills.io, Claude Code docs, MCP resources, and npm packages such as skills and autoskills.
+
+The key point for leadership: attendees will not just learn concepts; they will configure their own environment and leave able to apply the patterns immediately.
+
+We will give them a handout with the requirements we are asking for.">
+  <div class="frame">
+    <div class="head">
+      <div class="crumb"><span class="dot"></span><span>AI Fluency · Agentic Agents</span><span>Requirements &amp; Environment</span></div>
+      <div class="pg">EX / 04</div>
+    </div>
+    <div class="body">
+      <div class="two-col" style="gap: 90px;">
+        <div>
+          <p class="eyebrow">The asks</p>
+          <h2 class="title" style="font-size: 56px; margin-top: 14px;">What the session<br><em>needs to run</em></h2>
+          <div class="title-rule"></div>
+          <ul class="list" style="margin-top: 36px; gap: 20px;">
+            <li class="list-item" style="grid-template-columns: 190px 1fr; gap: 26px;">
+              <span class="n">Claude Code</span>
+              <div><div class="d" style="margin-top: 0;">Opus 4.8 and/or Fable 5.</div></div>
+            </li>
+            <li class="list-item" style="grid-template-columns: 190px 1fr; gap: 26px;">
+              <span class="n">GitHub</span>
+              <div><div class="d" style="margin-top: 0;">An enterprise marketplace repo (plugins + skills) and a lab &amp; workshop repo; github.com licenses for every attendee so they can fork the workshop repo and contribute; Copilot licenses with Claude Opus 4.8 / Fable 5 enabled; Actions and Codespaces.</div></div>
+            </li>
+            <li class="list-item" style="grid-template-columns: 190px 1fr; gap: 26px;">
+              <span class="n">Azure</span>
+              <div><div class="d" style="margin-top: 0;">DevBoxes and Foundry.</div></div>
+            </li>
+            <li class="list-item" style="grid-template-columns: 190px 1fr; gap: 26px;">
+              <span class="n">MS Teams</span>
+              <div><div class="d" style="margin-top: 0;">Access permissions to create integrations and webhooks.</div></div>
+            </li>
+            <li class="list-item" style="grid-template-columns: 190px 1fr; gap: 26px;">
+              <span class="n">Hosting</span>
+              <div><div class="d" style="margin-top: 0;">A place to host the web apps built during the session, which Claude uses as targets for browser E2E tests.</div></div>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <p class="eyebrow" style="margin-bottom: 22px;">Applications &amp; tools</p>
+          <div class="codeblock" style="font-size: 25px; line-height: 1.75;">vscode
+codespaces or docker + devcontainers
+mise
+bun
+just
+skills.sh
+        </div>
+      </div>
+    </div>
+    <div class="foot">
+      <div class="row"><span><span class="col-label">Format</span>hands-on · checkpoints from the lab workbook · break included</span></div>
+      <div>Executive Briefing</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     EX / 05 · Agents and Skills: what we're building
+     ==================================================== -->
+<section data-label="05 What We're Building" data-screen-label="05 What We're Building" data-speaker-notes="Keep your remarks to 2 min.
+
+This slide shows the concrete agents and skills we are building, grouped into three areas:
+
+1. Setup / config developer experience: agents and skills that standardize how engineers set up and work in their environment, covering linting, formatting, style guides, and editor standards.
+
+2. Language-specific agents and skills: targeted expertise for C# and .NET, full-stack web development, and databases.
+
+3. CI/CD on GitHub Actions: automation across the pipeline, including code reviews and code quality, security scanners, dependency scans, and auto issue triaging for failed pipelines.
+
+The point for leadership: these are not abstract concepts; they are the specific, reusable building blocks the team is producing.">
+  <div class="frame">
+    <div class="head">
+      <div class="crumb"><span class="dot"></span><span>AI Fluency &middot; Agentic Agents</span><span>What We're Building</span></div>
+      <div class="pg">EX / 05</div>
+    </div>
+    <div class="body">
+      <h2 class="title">Agents &amp; Skills: <em>what we're building</em></h2>
+      <div class="title-rule"></div>
+      <div class="card-grid cols-3" style="margin-top: 40px; gap: 22px;">
+        <div class="card">
+          <span class="num">01 / Foundation</span>
+          <span class="name" style="font-size: 38px;">Setup &amp; Config<br>Dev Experience</span>
+          <ul class="bd-list">
+            <li>Linting</li>
+            <li>Formatting</li>
+            <li>Style guides</li>
+            <li>Editor standards</li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="num">02 / Expertise</span>
+          <span class="name" style="font-size: 38px;">Language-Specific<br>Agents &amp; Skills</span>
+          <ul class="bd-list">
+            <li>C# and .NET</li>
+            <li>Full-stack web development</li>
+            <li>Databases</li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="num">03 / Automation</span>
+          <span class="name" style="font-size: 38px;">CI/CD<br>GitHub Actions</span>
+          <ul class="bd-list">
+            <li>Code reviews &amp; code quality</li>
+            <li>Security scanners</li>
+            <li>Dependency scans</li>
+            <li>Auto issue triaging for failed pipelines</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="foot">
+      <div class="row"><span><span class="col-label">Build areas</span>developer experience &rarr; language expertise &rarr; pipeline automation</span></div>
+      <div>Executive Briefing</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     EX / 06 · Organizational benefits, vision, Q&A
+     ==================================================== -->
+<section data-label="06 Organizational Benefits" data-screen-label="06 Organizational Benefits" data-speaker-notes="Keep your remarks to 2 min.
+
+Accelerate AI Adoption: many engineers are experimenting with AI differently today. This session establishes a shared vocabulary and framework for how AI agents are configured and used, and the concepts transfer across current and future AI platforms.
+
+Scale Knowledge: one of the most valuable outcomes is teaching engineers to capture expertise as reusable skills, so knowledge is shared across teams and projects instead of remaining with individuals. This supports consistency and reduces repeated problem solving.
+
+Improve Productivity: engineers learn to decompose complex work into modular tasks that AI can assist with effectively; reusable skills, commands, and integrations reduce repetitive effort.
+
+Strengthen Governance: the curriculum explicitly addresses security around plugins, integrations, and external data access. Participants learn where controls belong and how to use agent technologies responsibly, aligning AI enablement with governance and architectural objectives rather than bypassing them.
+
+Operationalize AI: participants configure their own agent environment during the session and leave with a working AI development environment, an AGENTS.md file for a real project, at least one reusable skill, and exposure to plugins and MCP integrations. The goal is that attendees return to their teams and apply these techniques immediately, without further training.
+
+Recap (if necessary): this session helps engineers move from using AI occasionally to using AI systematically. A layered, modular approach to agentic AI improves productivity while maintaining the governance, security, and architectural rigor expected within the organization.
+
+Call for questions.">
+  <div class="frame">
+    <div class="head">
+      <div class="crumb"><span class="dot"></span><span>AI Fluency · Agentic Agents</span><span>Organizational Benefits</span></div>
+      <div class="pg">EX / 06</div>
+    </div>
+    <div class="body">
+      <h2 class="title">Organizational <em>Benefits</em></h2>
+      <div class="title-rule"></div>
+      <div class="card-grid cols-3" style="margin-top: 40px; gap: 20px;">
+        <div class="card">
+          <span class="num">01</span>
+          <span class="name" style="font-size: 38px;">Accelerate AI Adoption</span>
+          <p class="desc">Create a common framework for AI-assisted engineering.</p>
+        </div>
+        <div class="card">
+          <span class="num">02</span>
+          <span class="name" style="font-size: 38px;">Scale Knowledge</span>
+          <p class="desc">Turn individual expertise into reusable organizational assets.</p>
+        </div>
+        <div class="card">
+          <span class="num">03</span>
+          <span class="name" style="font-size: 38px;">Improve Productivity</span>
+          <p class="desc">Reduce repetitive work through reusable workflows and automation.</p>
+        </div>
+        <div class="card">
+          <span class="num">04</span>
+          <span class="name" style="font-size: 38px;">Strengthen Governance</span>
+          <p class="desc">Promote secure, consistent, and responsible AI usage.</p>
+        </div>
+        <div class="card">
+          <span class="num">05</span>
+          <span class="name" style="font-size: 38px;">Operationalize AI</span>
+          <p class="desc">Attendees leave with a configured environment and practical workflows they can apply immediately.</p>
+        </div>
+        <div class="card">
+          <span class="num">06</span>
+          <span class="name" style="font-size: 38px;">Questions</span>
+          <p class="desc">Bring questions on scheduling, tailoring for specific teams, or what it takes to run this for your organization.</p>
+        </div>
+      </div>
+    </div>
+    <div class="foot">
+      <div class="row"><span><span class="col-label accent">Q&amp;A</span><span data-tweak="speaker">Daniel Bodnar</span></span></div>
+      <div>Executive Briefing</div>
+    </div>
+  </div>
+</section>
+
+</deck-stage>
+
+<!-- Scripts -->
+<script src="deck-stage.js"></script>
+
+<!-- React + Tweaks -->
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel" src="ai-fluency-tweaks.jsx"></script>
+
+</body>
+</html>

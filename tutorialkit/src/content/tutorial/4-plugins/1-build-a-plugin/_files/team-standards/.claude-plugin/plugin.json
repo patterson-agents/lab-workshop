@@ -1,0 +1,6 @@
+{
+  "name": "team-standards",
+  "description": "Acme engineering conventions: money handling, review rules.",
+  "version": "0.1.0",
+  "author": { "name": "Platform Team" }
+}

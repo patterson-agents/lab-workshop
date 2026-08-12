@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>TechDays: AI Fluency - Agentic Agents · Lesson Plan</title>
+<link rel="stylesheet" href="_ds/patterson-design-system-3534f94f-a7e6-4612-81d4-6e830716f07d/styles.css" />
+<script src="https://unpkg.com/marked@12.0.2/marked.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<style>
+/* Presenter's guide — Patterson Companies design system tokens. */
+:root {
+  --ink: var(--pat-navy);
+  --ink-dim: var(--pat-gray-600);
+  --code-bg: var(--pat-navy-10);
+}
+body {
+  background: var(--surface-page);
+  color: var(--text-body);
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+}
+.page { max-width: 900px; margin: 0 auto; padding: var(--space-9) var(--gutter) var(--space-11); }
+.doc-head {
+  border-bottom: var(--border-w-thick) solid var(--pat-navy);
+  padding-bottom: var(--space-4); margin-bottom: var(--space-7);
+  display: flex; justify-content: space-between; align-items: center; gap: var(--space-5); flex-wrap: wrap;
+}
+.doc-head .brand { display: flex; align-items: center; gap: var(--space-4); }
+.doc-head .brand img { height: 26px; width: auto; display: block; }
+.doc-head .stamp {
+  font-size: var(--fs-xs); font-weight: var(--fw-semibold); line-height: 1;
+  color: var(--text-on-brand); background: var(--pat-sky);
+  border-radius: var(--radius-sm); padding: 5px var(--space-2) 4px;
+}
+.doc-head .meta { font-size: var(--fs-sm); font-weight: var(--fw-medium); color: var(--pat-navy); }
+#content h1 {
+  font-size: var(--pt-h1-size); line-height: var(--pt-h1-lh); font-weight: var(--pt-h1-weight);
+  letter-spacing: var(--ls-normal); color: var(--pat-navy); margin: 0 0 var(--space-4);
+}
+#content h2 {
+  font-size: var(--pt-h2-size); line-height: var(--pt-h2-lh); font-weight: var(--pt-h2-weight);
+  letter-spacing: var(--ls-normal); color: var(--pat-navy);
+  margin: var(--space-8) 0 var(--space-4); padding-top: var(--space-4);
+  border-top: var(--border-w) solid var(--border-subtle);
+}
+#content h3 {
+  font-size: var(--pt-h3-size); line-height: var(--pt-h3-lh); font-weight: var(--fw-bold);
+  color: var(--pat-navy); margin: var(--space-6) 0 var(--space-3);
+}
+#content p { margin: 0 0 var(--space-3); max-width: 72ch; }
+#content ul, #content ol { margin: 0 0 var(--space-4) var(--space-5); max-width: 72ch; }
+#content li { margin-bottom: var(--space-2); }
+#content strong { color: var(--pat-navy); }
+#content em { font-style: italic; }
+#content hr { border: none; border-top: var(--border-w) solid var(--border-subtle); margin: var(--space-7) 0; }
+#content code {
+  font-family: var(--font-mono); font-size: 0.86em; background: var(--code-bg);
+  padding: 1px var(--space-1); border-radius: var(--radius-xs); color: var(--pat-navy);
+}
+#content pre {
+  background: var(--pat-gray-50); border: var(--border-w) solid var(--border-subtle);
+  border-radius: var(--radius-md); padding: var(--space-4) var(--space-5); margin: 0 0 var(--space-4); overflow-x: auto;
+}
+#content pre code { background: none; padding: 0; font-size: var(--fs-sm); line-height: 1.6; }
+#content pre code.hljs { display: block; color: var(--pat-navy); background: none; }
+.hljs-comment, .hljs-quote { color: var(--pat-gray-500); font-style: italic; }
+.hljs-keyword, .hljs-selector-tag, .hljs-name, .hljs-tag, .hljs-built_in { color: var(--pat-blue); }
+.hljs-string, .hljs-attr, .hljs-template-tag, .hljs-doctag, .hljs-regexp, .hljs-addition { color: var(--pat-purple); }
+.hljs-number, .hljs-literal, .hljs-type, .hljs-params, .hljs-selector-attr, .hljs-selector-pseudo { color: var(--pat-teal); }
+.hljs-title, .hljs-section, .hljs-selector-id, .hljs-selector-class { color: var(--pat-navy); font-weight: var(--fw-bold); }
+.hljs-title.function_, .hljs-function .hljs-title { color: var(--pat-blue); font-weight: var(--fw-bold); }
+.hljs-meta, .hljs-meta .hljs-keyword { color: var(--pat-gray-500); }
+.hljs-symbol, .hljs-bullet, .hljs-link, .hljs-variable, .hljs-attribute { color: var(--pat-sky); }
+.hljs-deletion { color: var(--pat-danger); }
+.hljs-emphasis { font-style: italic; }
+.hljs-strong { font-weight: var(--fw-bold); }
+#content table { border-collapse: collapse; width: 100%; margin: 0 0 var(--space-5); font-size: var(--fs-sm); }
+#content th {
+  font-size: var(--fs-sm); font-weight: var(--fw-semibold); color: var(--pat-navy); text-align: left;
+  border-bottom: var(--border-w-thick) solid var(--border-default); padding: var(--space-2) var(--space-3) var(--space-2) 0;
+}
+#content td { border-bottom: var(--border-w) solid var(--border-subtle); padding: var(--space-2) var(--space-3) var(--space-2) 0; vertical-align: top; }
+#content blockquote {
+  border-left: 3px solid var(--pat-sky); padding: var(--space-1) 0 var(--space-1) var(--space-4);
+  margin: 0 0 var(--space-3); color: var(--text-body);
+}
+#content a { color: var(--text-link); }
+#content a:hover { color: var(--text-link-hover); }
+@media print {
+  body { background: var(--pat-white); font-size: 11.5pt; }
+  .page { max-width: none; padding: 0; }
+  #content h2 { break-after: avoid; }
+  #content table, #content pre { break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="doc-head">
+    <span class="brand"><img src="assets/brand/patterson-logo-navy.svg" alt="Patterson Companies" /><span class="stamp">Presenter's Guide</span></span>
+    <span class="meta">TechDays: AI Fluency - Agentic Agents · Training Series</span>
+  </div>
+  <div id="content"><p style="color: var(--ink-dim);">Loading…</p></div>
+</div>
+<script>
+fetch('curriculum/lesson-plan.md')
+  .then(function(r) { return r.text(); })
+  .then(function(md) {
+    var el = document.getElementById('content');
+    el.innerHTML = marked.parse(md);
+    el.querySelectorAll('pre code').forEach(function(block) {
+      try { hljs.highlightElement(block); } catch (e) {}
+    });
+  })
+  .catch(function(e) {
+    document.getElementById('content').innerHTML = '<p>Could not load curriculum/lesson-plan.md — open this file from the project root.</p>';
+  });
+</script>
+</body>
+</html>

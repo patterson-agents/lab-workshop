@@ -1,0 +1,1449 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>TechDays: AI Fluency - Agentic Agents · Training Deck</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="ai-fluency-agentic-agents.css" />
+
+<template id="__bundler_thumbnail">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <rect width="400" height="400" fill="#003767"/>
+  <g transform="translate(120,116)" fill="none" stroke="#00A8E1" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="0" y="0" width="160" height="160" rx="12" stroke="rgba(255,255,255,0.35)"/>
+    <line x1="40" y1="50" x2="120" y2="50"/>
+    <line x1="40" y1="80" x2="120" y2="80" stroke="rgba(255,255,255,0.35)"/>
+    <line x1="40" y1="110" x2="90" y2="110" stroke="rgba(255,255,255,0.35)"/>
+  </g>
+  <text x="200" y="322" text-anchor="middle" fill="#ffffff" font-family="system-ui,sans-serif" font-size="15" font-weight="700" letter-spacing="2">TECHDAYS · AI AGENTS</text>
+</svg>
+</template>
+</head>
+<body>
+
+<deck-stage width="1920" height="1080" thumbnails="true">
+
+<!-- ====================================================
+     M00 / 01 · Cover
+     ==================================================== -->
+<section data-label="01 Cover" data-screen-label="01 Cover" class="cover">
+  <div class="frame">
+    <div class="cover-head">
+      <div class="left">
+        <span class="brand-mark" role="img" aria-label="Patterson Companies"></span>
+        <span class="stamp">Training</span>
+        <span>Hands-on · Five Modules</span>
+      </div>
+      <div class="right">M00 / 01</div>
+    </div>
+
+    <div class="cover-body">
+      <div>
+        <h1 class="cover-title">TechDays
+AI Agents</h1>
+        <p class="cover-sub">AGENTS.md · Commands · Skills · Plugins · MCP: the five layers for configuring an AI coding agent, from a single instruction file to live external tools.</p>
+      </div>
+      <div class="cover-mark">
+        <span class="seal">5×</span>
+        <span>Extension Layers</span>
+        <span>One Mental Model</span>
+      </div>
+    </div>
+
+    <div class="cover-foot">
+      <div class="field">
+        <span class="lbl">Presenter</span>
+        <span class="val">Daniel Bodnar</span>
+      </div>
+      <div class="field">
+        <span class="lbl">Reference tool</span>
+        <span class="val">Claude Code · open standards noted</span>
+      </div>
+      <div class="field">
+        <span class="lbl">Materials</span>
+        <span class="val">Lab Workbook · Lesson Plan</span>
+      </div>
+      <div class="field">
+        <span class="lbl">Runtime</span>
+        <span class="val">~140 min · break included</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     M00 / 02 · What an agent is
+     ==================================================== -->
+<section data-label="02 What an Agent Is" data-screen-label="02 What an Agent Is">
+  <div class="frame">
+    <div class="head">
+      <div class="crumb"><span class="dot"></span><span>M00 · Welcome</span><span>Fundamentals</span></div>
+      <div class="pg">M00 / 02</div>
+    </div>
+    <div class="body">
+      <p class="eyebrow">Before any configuration</p>
+      <h2 class="title">An agent is a model in a loop:<br><em>instructions</em>, <em>tools</em>, <em>context</em>.</h2>
+      <div class="title-rule"></div>
+      <div class="card-grid cols-3" style="margin-top: 52px;">
+        <div class="card">
+          <span class="num">01 · Instructions</span>
+          <span class="name">What it should do</span>
+          <p class="desc">System prompts, your AGENTS.md, skills. Everything this session teaches lives in this layer or feeds it.</p>
+        </div>
+        <div class="card">
+          <span class="num">02 · Tools</span>
+          <span class="name">What it can call</span>
+          <p class="desc">File edits, shell, and (through MCP) anything you connect: ticket systems, databases, browsers.</p>
+        </div>
+        <div class="card">
+          <span class="num">03 · Context</span>
+          <span class="name">What it knows now</span>
+          <p class="desc">The finite window holding the conversation, files, and tool results. Every extension you add pays rent here.</p>
+        </div>
+      </div>
+      <p class="body-copy" style="margin-top: 44px; color: var(--ink-dim); font-size: 26px;">No magic anywhere in this session: just these three, configured deliberately.</p>
+    </div>
+    <div class="foot">
+      <div class="row"><span><span class="col-label">Recurring question</span>which layer does this belong in?</span></div>
+      <div>M00 · Welcome</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     M00 / 03 · The five layers (roadmap)
+     ==================================================== -->
+<section data-label="03 The Five Layers" data-screen-label="03 The Five Layers">
+  <div class="frame">
+    <div class="head">
+      <div class="crumb"><span class="dot"></span><span>M00 · Welcome</span><span>The Map</span></div>
+      <div class="pg">M00 / 03</div>
+    </div>
+    <div class="body">
+      <h2 class="title">Five layers form <em>one mental model</em>.</h2>
+      <div class="title-rule"></div>
+      <div class="card-grid cols-5" style="margin-top: 48px; gap: 18px;">
+        <div class="card" style="padding: 24px 22px;">
+          <span class="num">M01 · Always loaded</span>
+          <span class="name" style="font-size: 36px;">AGENTS.md</span>
+          <p class="desc" style="font-size: 24px;">One file at repo root. The agent's baseline knowledge of your codebase.</p>
+          <span class="pill">15 min</span>
+        </div>
+        <div class="card" style="padding: 24px 22px;">
+          <span class="num">M02 · Invoked</span>
+          <span class="name" style="font-size: 36px;">Commands</span>
+          <p class="desc" style="font-size: 24px;">The / menu: built-ins worth knowing, and what custom commands really are.</p>
+          <span class="pill">15 min</span>
+        </div>
+        <div class="card" style="padding: 24px 22px;">
+          <span class="num">M03 · On demand</span>
+          <span class="name" style="font-size: 36px;">Skills</span>
+          <p class="desc" style="font-size: 24px;">Procedural knowledge that loads only when the task matches. The core of the day.</p>
+          <span class="pill">30 min</span>
+        </div>
+        <div class="card" style="padding: 24px 22px;">
+          <span class="num">M04 · Packaged</span>
+          <span class="name" style="font-size: 36px;">Plugins</span>
+          <p class="desc" style="font-size: 24px;">Versioned, namespaced distribution, to your team and from the marketplaces.</p>
+          <span class="pill">20 min</span>
+        </div>
+        <div class="card" style="padding: 24px 22px;">
+          <span class="num">M05 · Connected</span>
+          <span class="name" style="font-size: 36px;">MCP</span>
+          <p class="desc" style="font-size: 24px;">Live tools and data from outside the agent: tickets, databases, browsers.</p>
+          <span class="pill">30 min</span>
+        </div>
+      </div>
+      <p class="small" style="margin-top: 40px;">Files first, connections last: each layer builds on the one before it. Break after Module 03.</p>
+    </div>
+    <div class="foot">
+      <div class="row"><span><span class="col-label">Arc</span>always-loaded → invoked → on-demand → packaged → connected</span></div>
+      <div>M00 · Welcome</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     M00 / 04 · Following along
+     ==================================================== -->
+<section data-label="04 Following Along" data-screen-label="04 Following Along">
+  <div class="frame">
+    <div class="head">
+      <div class="crumb"><span class="dot"></span><span>M00 · Welcome</span><span>Following Along</span></div>
+      <div class="pg">M00 / 04</div>
+    </div>
+    <div class="body">
+      <div class="two-col narrow-left" style="gap: 100px;">
+        <div>
+          <p class="eyebrow">Ground rule</p>
+          <h2 class="title" style="margin-top: 14px;">This is hands-on.<br>Open a <em>terminal</em>.</h2>
+          <div class="title-rule"></div>
+          <p class="body-copy" style="margin-top: 40px;">Every module ends with a checkpoint from the Lab Workbook. The workbook is self-contained: anyone who misses the session can work through it alone.</p>
+          <p class="body-copy" style="margin-top: 18px; font-size: 24px; color: var(--ink-dim);">Vendor note: the reference tool is Claude Code. AGENTS.md, Agent Skills, and MCP are open standards, so those modules transfer to Cursor, Codex, Gemini CLI, OpenCode, and others.</p>
+        </div>
+        <div>
+          <p class="eyebrow" style="margin-bottom: 22px;">Verify now</p>
+          <div class="codeblock" style="font-size: 26px; line-height: 1.7;"><span class="c"># 1 · agent installed and current</span>
+<span class="k">$</span> claude --version
+
+<span class="c"># 2 · authenticated</span>
+<span class="k">$</span> claude
+
+<span class="c"># 3 · Node 18+ (Module 05 stdio servers)</span>
+<span class="k">$</span> node --version
+
+<span class="c"># 4 · a real repo to experiment in</span>
+<span class="k">$</span> git status</div>
+        </div>
+      </div>
+    </div>
+    <div class="foot">
+      <div class="row"><span><span class="col-label">Stuck?</span>workbook has a troubleshooting table per module</span></div>
+      <div>M00 · Welcome</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     M01 / 05 · Divider — AGENTS.md
+     ==================================================== -->
+<section data-theme="dark" data-label="05 M01 AGENTS.md" data-screen-label="05 M01 Divider" class="divider">
+  <div class="frame">
+    <div class="head">
+      <div class="crumb"><span class="dot"></span><span>Module 01</span></div>
+      <div class="pg">M01 / 05</div>
+    </div>
+    <div class="body">
+      <div class="divider-grid">
+        <div class="module-numeral">0<span class="accent">1</span></div>
+        <div>
+          <h2 class="title">AGENTS.md</h2>
+          <p class="subtitle">The agent starts every session knowing nothing about your repository. One markdown file fixes that: the cheapest, highest-leverage configuration you will write today.</p>
+          <div class="divider-meta">
+            <div class="row"><span class="lbl">Layer</span><span class="val">Always loaded · baseline context</span></div>
+            <div class="row"><span class="lbl">Standard</span><span class="val">Open, cross-vendor (agents.md) · Claude Code reads CLAUDE.md</span></div>
+            <div class="row"><span class="lbl">Hands-on</span><span class="val">/init · edit · symlink · checkpoint</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot">
+      <div class="row"><span><span class="col-label">Workbook</span>Tutorial 01</span></div>
+      <div>M01 · AGENTS.md</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     M01 / 06 · What it is
+     ==================================================== -->
+<section data-label="06 The Instruction File" data-screen-label="06 The Instruction File">
+  <div class="frame">
+    <div class="head">
+      <div class="crumb"><span class="dot"></span><span>M01 · AGENTS.md</span><span>The Instruction File</span></div>
+      <div class="pg">M01 / 06</div>
+    </div>
+    <div class="body">
+      <div class="two-col narrow-left" style="gap: 90px;">
+        <div>
+          <p class="eyebrow">One file, read automatically</p>
+          <h2 class="title" style="margin-top: 14px;">It carries operating instructions,<br>not <em>documentation</em>.</h2>
+          <div class="title-rule"></div>
+          <p class="body-copy" style="margin-top: 40px;">A README explains the project to humans. AGENTS.md tells an agent how to operate: exact commands, conventions, prohibitions, and where the deeper docs live.</p>
+          <p class="body-copy" style="margin-top: 18px;">It loads on <strong>every</strong> session, which is both its power and its budget. Every line pays context rent whether the session needs it or not.</p>
+          <p class="body-copy" style="margin-top: 18px; font-size: 24px; color: var(--ink-dim);">Cross-vendor: most agents read AGENTS.md natively. Claude Code reads CLAUDE.md; keep AGENTS.md canonical and symlink.</p>
+        </div>
+        <div>
+          <p class="eyebrow" style="margin-bottom: 22px;">The shape that works</p>
+          <div class="codeblock" style="font-size: 24px;"><span class="h">AGENTS.md</span><span class="k">## Commands</span>
+- Build: <span class="s">`bun run build`</span>
+- Test one file: <span class="s">`bun test path/to/x.test.ts`</span>
+- Lint + fix: <span class="s">`bun run lint --fix`</span>
+
+<span class="k">## Conventions</span>
+- Use internal <span class="s">`@acme/http`</span> — never raw fetch()
+- Money is integer cents. Never floats.
+
+<span class="k">## Do not</span>
+- Touch <span class="s">`src/generated/`</span> — codegen owns it
+- Add dependencies without flagging in the PR</div>
+        </div>
+      </div>
+    </div>
+    <div class="foot">
+      <div class="row"><span><span class="col-label">Test per line</span>"would the agent get this wrong without it?"</span></div>
+      <div>M01 · AGENTS.md</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     M01 / 07 · In / out
+     ==================================================== -->
+<section data-label="07 What Goes In" data-screen-label="07 What Goes In">
+  <div class="frame">
+    <div class="head">
+      <div class="crumb"><span class="dot"></span><span>M01 · AGENTS.md</span><span>What Goes In</span></div>
+      <div class="pg">M01 / 07</div>
+    </div>
+    <div class="body">
+      <h2 class="title">Every line costs context<br>in <em>every session</em>.</h2>
+      <div class="title-rule"></div>
+      <div class="layers" style="margin-top: 48px;">
+        <div class="layer-card">
+          <span class="lbl">Belongs in</span>
+          <span class="nm">What every session needs</span>
+          <p class="desc">Build, test, and lint commands, exactly as your team runs them. House conventions an outsider couldn't guess. Internal libraries to prefer. Directories never to touch. Pointers to deeper docs.</p>
+        </div>
+        <div class="layer-card">
+          <span class="lbl">Stays out</span>
+          <span class="nm">Everything else</span>
+          <p class="desc">Anything the model already knows (what a PDF is, how git works). Prose essays. And procedures: the moment a section becomes step-by-step instructions for an occasional task, it belongs in a skill (Module 03).</p>
+        </div>
+      </div>
+      <p class="body-copy" style="margin-top: 44px;">Monorepos: nested AGENTS.md per package; the closest file wins. Keep the root file global, push specifics down.</p>
+    </div>
+    <div class="foot">
+      <div class="row"><span><span class="col-label">Rule of thumb</span>most first drafts shrink by a third on audit</span></div>
+      <div>M01 · AGENTS.md</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     M01 / 08 · Workflow + checkpoint
+     ==================================================== -->
+<section data-label="08 M01 Workflow" data-screen-label="08 M01 Workflow">
+  <div class="frame">
+    <div class="head">
+      <div class="crumb"><span class="dot"></span><span>M01 · AGENTS.md</span><span>Hands-on</span></div>
+      <div class="pg">M01 / 08</div>
+    </div>
+    <div class="body">
+      <h2 class="title">Generate, <em>then edit critically</em>.</h2>
+      <div class="title-rule"></div>
+      <ul class="list" style="margin-top: 44px;">
+        <li class="list-item">
+          <span class="n">Step 01</span>
+          <div>
+            <div class="t"><span class="mono accent">/init</span> writes a draft</div>
+            <div class="d">Claude explores the repo and writes a starting CLAUDE.md. It's a bootstrapper, not a deliverable; verify every command it guessed.</div>
+          </div>
+        </li>
+        <li class="list-item">
+          <span class="n">Step 02</span>
+          <div>
+            <div class="t">Add what only your team knows</div>
+            <div class="d">The valuable content is in your head, not the file tree: conventions, banned patterns, the directory codegen owns.</div>
+          </div>
+        </li>
+        <li class="list-item">
+          <span class="n">Step 03</span>
+          <div>
+            <div class="t">Make it cross-vendor</div>
+            <div class="d"><span class="mono">mv CLAUDE.md AGENTS.md && ln -s AGENTS.md CLAUDE.md</span>: one source of truth, every agent reads it.</div>
+          </div>
+        </li>
+        <li class="list-item">
+          <span class="n">Step 04</span>
+          <div>
+            <div class="t"><span class="mono accent">/memory</span> when it drifts</div>
+            <div class="d">Edits the file in-session. An AGENTS.md that lies is worse than none, because the agent trusts it completely.</div>
+          </div>
+        </li>
+      </ul>
+      <div class="checkpoint" style="margin-top: 44px;">
+        <span class="ck">✓ Checkpoint</span>
+        <span class="tx">Fresh session: "What test command should you use here, and which directories are off-limits?" Answered from the file, without searching.</span>
+      </div>
+    </div>
+    <div class="foot">
+      <div class="row"><span><span class="col-label">Workbook</span>Tutorial 01 · exercises + troubleshooting</span></div>
+      <div>M01 · AGENTS.md</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     M02 / 09 · Divider — Commands
+     ==================================================== -->
+<section data-theme="dark" data-label="09 M02 Commands" data-screen-label="09 M02 Divider" class="divider">
+  <div class="frame">
+    <div class="head">
+      <div class="crumb"><span class="dot"></span><span>Module 02</span></div>
+      <div class="pg">M02 / 09</div>
+    </div>
+    <div class="body">
+      <div class="divider-grid">
+        <div class="module-numeral">0<span class="accent">2</span></div>
+        <div>
+          <h2 class="title">Commands</h2>
+          <p class="subtitle">Everything behind the / key is one of two things: a built-in command, or a skill. Fluency with the first; a door into the second.</p>
+          <div class="divider-meta">
+            <div class="row"><span class="lbl">Layer</span><span class="val">Invoked · the interface to everything else</span></div>
+            <div class="row"><span class="lbl">Scope</span><span class="val">Claude Code's command set · concepts transfer</span></div>
+            <div class="row"><span class="lbl">Hands-on</span><span class="val">the working set · /context · a custom command</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot">
+      <div class="row"><span><span class="col-label">Workbook</span>Tutorial 02</span></div>
+      <div>M02 · Commands</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     M02 / 10 · Two kinds
+     ==================================================== -->
+<section data-label="10 Two Kinds" data-screen-label="10 Two Kinds">
+  <div class="frame">
+    <div class="head">
+      <div class="crumb"><span class="dot"></span><span>M02 · Commands</span><span>Two Kinds</span></div>
+      <div class="pg">M02 / 10</div>
+    </div>
+    <div class="body">
+      <h2 class="title">Behind the slash sits<br><em>fixed logic</em> or <em>a prompt</em>.</h2>
+      <div class="title-rule"></div>
+      <div class="layers" style="margin-top: 48px;">
+        <div class="layer-card">
+          <span class="lbl">Built-in commands</span>
+          <span class="nm">Fixed logic</span>
+          <p class="desc">Shipped with the tool: <span class="mono">/clear</span>, <span class="mono">/permissions</span>, <span class="mono">/mcp</span>, <span class="mono">/config</span>. They manage the session and the machinery around it. You can't write these, but the next slide's working set is worth memorizing.</p>
+        </div>
+        <div class="layer-card">
+          <span class="lbl">Skills</span>
+          <span class="nm">Prompt-based</span>
+          <p class="desc">Everything else: every custom command you'll ever write, plus the bundled ones like <span class="mono">/debug</span> and <span class="mono">/batch</span>. Extensible, shareable, and the subject of Module 03.</p>
+        </div>
+      </div>
+      <p class="body-copy" style="margin-top: 44px;">Type <span class="kbd">/</span> and read your own list; entries vary by platform and plan. MCP servers add a third source later: <span class="mono">/mcp__server__prompt</span>.</p>
+    </div>
+    <div class="foot">
+      <div class="row"><span><span class="col-label">Deprecation note</span>/review is now a plugin: code-review@claude-plugins-official</span></div>
+      <div>M02 · Commands</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     M02 / 11 · Working set
+     ==================================================== -->
+<section data-label="11 The Working Set" data-screen-label="11 The Working Set">
+  <div class="frame">
+    <div class="head">
+      <div class="crumb"><span class="dot"></span><span>M02 · Commands</span><span>The Working Set</span></div>
+      <div class="pg">M02 / 11</div>
+    </div>
+    <div class="body">
+      <h2 class="title">Nine commands are<br>worth <em>memorizing</em>.</h2>
+      <div class="title-rule"></div>
+      <div class="two-col" style="margin-top: 44px; gap: 70px;">
+        <table class="matrix">
+          <thead><tr><th style="width: 230px;">Command</th><th>What it does</th></tr></thead>
+          <tbody>
+            <tr><td class="surface">/context</td><td class="why">Colored-grid view of what's filling the window. Run it after every module today.</td></tr>
+            <tr><td class="surface">/permissions</td><td class="why">Allow / ask / deny rules for tools: the guardrail surface.</td></tr>
+            <tr><td class="surface">/mcp</td><td class="why">Server status, tool counts, OAuth. Module 05 home base.</td></tr>
+            <tr><td class="surface">/compact</td><td class="why">Summarize the conversation to free space; keeps the thread.</td></tr>
+            <tr><td class="surface">/clear</td><td class="why">Wipe and start fresh; cheaper when you don't need the thread.</td></tr>
+          </tbody>
+        </table>
+        <table class="matrix">
+          <thead><tr><th style="width: 230px;">Command</th><th>What it does</th></tr></thead>
+          <tbody>
+            <tr><td class="surface">/rewind</td><td class="why">Roll back conversation and/or code. The undo most people don't know exists.</td></tr>
+            <tr><td class="surface">/skills</td><td class="why">List every skill currently available. Module 03 home base.</td></tr>
+            <tr><td class="surface">/model</td><td class="why">Switch model; configure effort.</td></tr>
+            <tr><td class="surface">/doctor</td><td class="why">Diagnose installation and settings. First stop when anything misbehaves.</td></tr>
+            <tr><td class="why" colspan="2" style="color: var(--ink-dim);">…plus /init and /memory from Module 01.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="foot">
+      <div class="row"><span><span class="col-label">Demo</span>/context · find your AGENTS.md in the grid</span></div>
+      <div>M02 · Commands</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     M02 / 12 · Custom commands are skills
+     ==================================================== -->
+<section data-label="12 Custom Commands" data-screen-label="12 Custom Commands">
+  <div class="frame">
+    <div class="head">
+      <div class="crumb"><span class="dot"></span><span>M02 · Commands</span><span>Custom Commands</span></div>
+      <div class="pg">M02 / 12</div>
+    </div>
+    <div class="body">
+      <div class="two-col narrow-left" style="gap: 90px;">
+        <div>
+          <p class="eyebrow">The pivot to Module 03</p>
+          <h2 class="title" style="margin-top: 14px;">A custom command<br><em>is a skill</em>.</h2>
+          <div class="title-rule"></div>
+          <p class="body-copy" style="margin-top: 40px;">Drop a folder in <span class="mono">.claude/skills/</span>, restart, and <span class="mono">/standup</span> exists. The <span class="mono">!`…`</span> line runs <strong>before</strong> the model reads the prompt: its output is injected into the text.</p>
+          <p class="body-copy" style="margin-top: 18px;">The legacy form (a flat file in <span class="mono">.claude/commands/</span>) still works, but skills win name conflicts and are the form to write going forward.</p>
+          <div class="checkpoint" style="margin-top: 36px;">
+            <span class="ck">✓ Checkpoint</span>
+            <span class="tx">Your /standup runs, and you can explain where its git log came from.</span>
+          </div>
+        </div>
+        <div>
+          <p class="eyebrow" style="margin-bottom: 22px;">.claude/skills/standup/SKILL.md</p>
+          <div class="codeblock" style="font-size: 24px; line-height: 1.6;"><span class="k">---</span>
+<span class="k">description:</span> Summarize my recent work as a
+  standup update. Use when asked for a standup.
+<span class="k">---</span>
+
+Summarize the last day of git history by the
+current author as three bullets:
+done, in progress, blocked.
+
+<span class="s">!`git log --author="$(git config user.name)"
+   --since=yesterday --oneline`</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="foot">
+      <div class="row"><span><span class="col-label">Arguments</span>$ARGUMENTS · $1 · argument-hint · Tutorial 02, exercise 2</span></div>
+      <div>M02 · Commands</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     M03 / 13 · Divider — Skills
+     ==================================================== -->
+<section data-theme="dark" data-label="13 M03 Skills" data-screen-label="13 M03 Divider" class="divider">
+  <div class="frame">
+    <div class="head">
+      <div class="crumb"><span class="dot"></span><span>Module 03</span></div>
+      <div class="pg">M03 / 13</div>
+    </div>
+    <div class="body">
+      <div class="divider-grid">
+        <div class="module-numeral">0<span class="accent">3</span></div>
+        <div>
+          <h2 class="title">Skills</h2>
+          <p class="subtitle">Procedural knowledge the agent loads only when the task matches. The open standard, the anatomy, and how to write skills that actually work. The core of the session.</p>
+          <div class="divider-meta">
+            <div class="row"><span class="lbl">Layer</span><span class="val">On demand · pay context only when used</span></div>
+            <div class="row"><span class="lbl">Standard</span><span class="val">Agent Skills (agentskills.io) · adopted by 20+ agents</span></div>
+            <div class="row"><span class="lbl">Hands-on</span><span class="val">write · place · trigger · tune · publish</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot">
+      <div class="row"><span><span class="col-label">Workbook</span>Tutorial 03 · break afterwards</span></div>
+      <div>M03 · Skills</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     M03 / 14 · The economics
+     ==================================================== -->
+<section data-theme="dark" data-label="14 The Economics" data-screen-label="14 The Economics">
+  <div class="frame">
+    <div class="head">
+      <div class="crumb"><span class="dot"></span><span>M03 · Skills</span><span>The Economics</span></div>
+      <div class="pg">M03 / 14</div>
+    </div>
+    <div class="body" style="justify-content: center;">
+      <p class="sigil">Why skills exist</p>
+      <p class="pullquote" style="margin-top: 30px;">AGENTS.md loads <span class="accent">always</span>.<br>A skill loads <span class="accent">when relevant</span>;<br>until then it costs ~100 tokens.</p>
+      <p class="body-copy" style="margin-top: 48px; font-size: 28px; max-width: 1500px;">At startup the agent sees only each skill's name and description. The body (up to ~5k tokens of instructions, plus unlimited referenced files) enters context only when a task matches. That asymmetry is the entire design.</p>
+    </div>
+    <div class="foot">
+      <div class="row"><span><span class="col-label">Rule</span>every session needs it → AGENTS.md · some sessions need it → skill</span></div>
+      <div>M03 · Skills</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     M03 / 15 · Progressive disclosure
+     ==================================================== -->
+<section data-label="15 Progressive Disclosure" data-screen-label="15 Progressive Disclosure">
+  <div class="frame">
+    <div class="head">
+      <div class="crumb"><span class="dot"></span><span>M03 · Skills</span><span>Progressive Disclosure</span></div>
+      <div class="pg">M03 / 15</div>
+    </div>
+    <div class="body">
+      <h2 class="title">Skills load in three stages,<br>on <em>three budgets</em>.</h2>
+      <div class="title-rule"></div>
+      <div class="card-grid cols-3" style="margin-top: 52px;">
+        <div class="card">
+          <span class="num">Stage 01 · ~100 tokens</span>
+          <span class="name">Discovery</span>
+          <p class="desc">At startup, only the name and description of every installed skill load. The description is the trigger: it decides everything downstream.</p>
+          <span class="pill">always in context</span>
+        </div>
+        <div class="card">
+          <span class="num">Stage 02 · &lt;5k tokens</span>
+          <span class="name">Activation</span>
+          <p class="desc">A task matches the description; the full SKILL.md body enters context. Keep it under 500 lines: concise steps, one worked example.</p>
+          <span class="pill">on match</span>
+        </div>
+        <div class="card">
+          <span class="num">Stage 03 · as needed</span>
+          <span class="name">Execution</span>
+          <p class="desc">The agent follows the instructions, running bundled scripts and reading referenced files only when the work calls for them.</p>
+          <span class="pill">scripts/ · references/</span>
+        </div>
+      </div>
+      <p class="body-copy" style="margin-top: 44px;">For big skills, push depth down a stage: move detail into <span class="mono">references/</span> and tell the agent <em>when</em> to read each file: "Read references/api-errors.md if the API returns non-200."</p>
+    </div>
+    <div class="foot">
+      <div class="row"><span><span class="col-label">Spec</span>agentskills.io/specification</span></div>
+      <div>M03 · Skills</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     M03 / 16 · Anatomy
+     ==================================================== -->
+<section data-label="16 Anatomy" data-screen-label="16 Anatomy">
+  <div class="frame">
+    <div class="head">
+      <div class="crumb"><span class="dot"></span><span>M03 · Skills</span><span>Anatomy</span></div>
+      <div class="pg">M03 / 16</div>
+    </div>
+    <div class="body">
+      <div class="two-col narrow-right" style="gap: 80px;">
+        <div>
+          <p class="eyebrow" style="margin-bottom: 22px;">.claude/skills/money-handling/SKILL.md</p>
+          <div class="codeblock" style="font-size: 24px; line-height: 1.55;"><span class="k">---</span>
+<span class="k">name:</span> money-handling
+<span class="k">description:</span> Conventions for money values in
+  this codebase. Use when writing or reviewing
+  code that handles prices, payments, refunds,
+  or currency.
+<span class="k">---</span>
+
+<span class="s"># Money handling</span>
+- All monetary values are integer cents.
+  Never floats, never strings.
+- Construct with Money.fromCents()
+  from @acme/money.
+
+<span class="s">## Gotchas</span>
+<span class="c">- Legacy orders.total_price is DECIMAL dollars —
+  convert at the boundary, nowhere else.</span></div>
+        </div>
+        <div>
+          <h2 class="title" style="font-size: 56px;">Two fields<br>carry the <em>system</em>.</h2>
+          <div class="title-rule"></div>
+          <ul class="list" style="margin-top: 36px; gap: 24px;">
+            <li class="list-item" style="grid-template-columns: 220px 1fr;">
+              <span class="n">name</span>
+              <div><div class="d" style="margin-top: 0;">Lowercase, hyphenated, ≤64 chars, and it must match the folder name.</div></div>
+            </li>
+            <li class="list-item" style="grid-template-columns: 220px 1fr;">
+              <span class="n">description</span>
+              <div><div class="d" style="margin-top: 0;">What it does <em>and when to use it</em>, ≤1024 chars, with the trigger words of the task. The only thing the model sees before activating.</div></div>
+            </li>
+            <li class="list-item" style="grid-template-columns: 220px 1fr;">
+              <span class="n">body</span>
+              <div><div class="d" style="margin-top: 0;">Plain markdown. Steps, one example, a Gotchas section. No schema.</div></div>
+            </li>
+          </ul>
+          <p class="body-copy" style="margin-top: 30px; font-size: 24px; color: var(--ink-dim);">"Helps with PDFs" never triggers. "Extracts text and tables from PDF files — use when working with PDF documents" does.</p>
+        </div>
+      </div>
+    </div>
+    <div class="foot">
+      <div class="row"><span><span class="col-label">Validate</span>skills-ref validate ./my-skill</span></div>
+      <div>M03 · Skills</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     M03 / 17 · Control surfaces
+     ==================================================== -->
+<section data-label="17 Control Surfaces" data-screen-label="17 Control Surfaces">
+  <div class="frame">
+    <div class="head">
+      <div class="crumb"><span class="dot"></span><span>M03 · Skills</span><span>Control Surfaces</span></div>
+      <div class="pg">M03 / 17</div>
+    </div>
+    <div class="body">
+      <h2 class="title">Who invokes it: <em>you, the model, or both</em>.</h2>
+      <div class="title-rule"></div>
+      <table class="matrix" style="margin-top: 40px;">
+        <thead>
+          <tr><th style="width: 460px;">Frontmatter</th><th style="width: 330px;">Who can invoke</th><th>Use for</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="surface">(default)</td>
+            <td class="why">You and the model</td>
+            <td class="why">Most skills: conventions, procedures, reference knowledge.</td>
+          </tr>
+          <tr>
+            <td class="surface">disable-model-invocation: true</td>
+            <td class="why">Only you, via /name</td>
+            <td class="why">Side effects: /deploy, /commit, /release. The model never decides to run these on its own.</td>
+          </tr>
+          <tr>
+            <td class="surface">user-invocable: false</td>
+            <td class="why">Only the model</td>
+            <td class="why">Background knowledge, hidden from the / menu entirely.</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="body-copy" style="margin-top: 40px;">Claude Code extensions, same file: <span class="mono">$ARGUMENTS</span> and named arguments, <span class="mono">!`command`</span> pre-injection, <span class="mono">context: fork</span> to run in a subagent, <span class="mono">allowed-tools</span> to pre-approve tools while the skill is active.</p>
+    </div>
+    <div class="foot">
+      <div class="row"><span><span class="col-label">Vendor note</span>Claude Code superset · name + description are portable</span></div>
+      <div>M03 · Skills</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     M03 / 18 · Scopes
+     ==================================================== -->
+<section data-label="18 Scopes" data-screen-label="18 Scopes">
+  <div class="frame">
+    <div class="head">
+      <div class="crumb"><span class="dot"></span><span>M03 · Skills</span><span>Scopes</span></div>
+      <div class="pg">M03 / 18</div>
+    </div>
+    <div class="body">
+      <h2 class="title">The most specific scope<br><em>wins the name</em>.</h2>
+      <div class="title-rule"></div>
+      <div class="card-grid cols-3" style="margin-top: 52px;">
+        <div class="card">
+          <span class="num">Scope 01 · org</span>
+          <span class="name">Enterprise</span>
+          <p class="desc">Pushed through managed settings. Wins all name conflicts; the org's rules are not optional.</p>
+          <span class="pill">admin-controlled</span>
+        </div>
+        <div class="card">
+          <span class="num">Scope 02 · you</span>
+          <span class="name">Personal</span>
+          <p class="desc">Your habits, every project you open. Yours beats the repo's on a name collision.</p>
+          <span class="pill">~/.claude/skills/</span>
+        </div>
+        <div class="card">
+          <span class="num">Scope 03 · repo</span>
+          <span class="name">Project</span>
+          <p class="desc">Committed to version control, so the whole team gets it on clone. Where team conventions live.</p>
+          <span class="pill">.claude/skills/</span>
+        </div>
+      </div>
+      <p class="body-copy" style="margin-top: 44px;">Edits to an existing SKILL.md apply live in the session. New top-level folders need a restart. Plugin skills (Module 04) are namespaced: they never collide.</p>
+    </div>
+    <div class="foot">
+      <div class="row"><span><span class="col-label">Monorepo</span>nested .claude/skills/ discovered on demand</span></div>
+      <div>M03 · Skills</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     M03 / 19 · Best practices
+     ==================================================== -->
+<section data-label="19 Writing Skills That Work" data-screen-label="19 Writing Skills That Work">
+  <div class="frame">
+    <div class="head">
+      <div class="crumb"><span class="dot"></span><span>M03 · Skills</span><span>Writing Skills That Work</span></div>
+      <div class="pg">M03 / 19</div>
+    </div>
+    <div class="body">
+      <h2 class="title">Write from <em>scar tissue</em>,<br>not from imagination.</h2>
+      <div class="title-rule"></div>
+      <ul class="list" style="margin-top: 44px;">
+        <li class="list-item">
+          <span class="n">Source</span>
+          <div>
+            <div class="t">Start from real expertise</div>
+            <div class="d">Your last ten code-review comments, a runbook, an incident report. Generated skills without domain context produce filler: "handle errors appropriately" helps no one.</div>
+          </div>
+        </li>
+        <li class="list-item">
+          <span class="n">Budget</span>
+          <div>
+            <div class="t">One test per line</div>
+            <div class="d">"Would the agent get this wrong without this?" If no, delete it. A default beats a menu: name one library, not five options.</div>
+          </div>
+        </li>
+        <li class="list-item">
+          <span class="n">Gotchas</span>
+          <div>
+            <div class="t">The highest-value section</div>
+            <div class="d">Concrete facts that defy assumptions: "the /health endpoint returns 200 even when the queue is down." Add one every time you correct the agent.</div>
+          </div>
+        </li>
+        <li class="list-item">
+          <span class="n">Iterate</span>
+          <div>
+            <div class="t">Execute, then revise (once)</div>
+            <div class="d">Run it on a real task and read the trace, not just the output. Wandering means vague instructions; ignored sections mean cut them.</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="foot">
+      <div class="row"><span><span class="col-label">Senior material</span>agentskills.io/skill-creation/best-practices</span></div>
+      <div>M03 · Skills</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     M03 / 20 · Scripts + ecosystem
+     ==================================================== -->
+<section data-label="20 Scripts and Ecosystem" data-screen-label="20 Scripts and Ecosystem">
+  <div class="frame">
+    <div class="head">
+      <div class="crumb"><span class="dot"></span><span>M03 · Skills</span><span>Scripts &amp; Ecosystem</span></div>
+      <div class="pg">M03 / 20</div>
+    </div>
+    <div class="body">
+      <div class="two-col" style="gap: 80px;">
+        <div>
+          <p class="eyebrow">Bundled scripts</p>
+          <h2 class="title" style="font-size: 52px; margin-top: 14px;">Your operator<br>is an <em>agent</em>.</h2>
+          <div class="title-rule"></div>
+          <p class="body-copy" style="margin-top: 32px; font-size: 24px;">A script that asks <span class="mono">"Continue? [y/N]"</span> hangs forever, because agents can't answer prompts. Design accordingly:</p>
+          <ul class="list" style="margin-top: 24px; gap: 14px;">
+            <li class="list-item" style="grid-template-columns: 36px 1fr; gap: 18px;"><span class="n">·</span><div><div class="d" style="margin-top:0;">Flags and env vars only; missing input → clear error + usage</div></div></li>
+            <li class="list-item" style="grid-template-columns: 36px 1fr; gap: 18px;"><span class="n">·</span><div><div class="d" style="margin-top:0;">Structured output on stdout; diagnostics on stderr</div></div></li>
+            <li class="list-item" style="grid-template-columns: 36px 1fr; gap: 18px;"><span class="n">·</span><div><div class="d" style="margin-top:0;">Idempotent, because agents retry; --dry-run for anything destructive</div></div></li>
+            <li class="list-item" style="grid-template-columns: 36px 1fr; gap: 18px;"><span class="n">·</span><div><div class="d" style="margin-top:0;">One-offs: pin versions (npx eslint@9 · uvx ruff@0.8.0 · bunx)</div></div></li>
+          </ul>
+        </div>
+        <div>
+          <p class="eyebrow">The skills directory</p>
+          <h2 class="title" style="font-size: 52px; margin-top: 14px;">One folder works<br>in <em>twenty agents</em>.</h2>
+          <div class="title-rule"></div>
+          <div class="codeblock" style="margin-top: 32px; font-size: 24px; line-height: 1.6;"><span class="k">$</span> npx skills add anthropics/skills
+<span class="c"># installs across Claude Code, Cursor, Codex,
+# Copilot, Gemini CLI, OpenCode, …</span></div>
+          <p class="body-copy" style="margin-top: 28px; font-size: 24px;">skills.sh is the public directory: trending lists, official collections, and security audits. Worth knowing: <span class="mono">skill-creator</span> (Anthropic's skill for writing skills) and the document skills (pdf, docx, xlsx, pptx).</p>
+        </div>
+      </div>
+      <div class="checkpoint" style="margin-top: 40px;">
+        <span class="ck">✓ Checkpoint</span>
+        <span class="tx">A project skill that triggers on natural language, a user-only skill, one community skill installed, and you can name the three context budgets.</span>
+      </div>
+    </div>
+    <div class="foot">
+      <div class="row"><span><span class="col-label">Break</span>ten minutes after this checkpoint</span></div>
+      <div>M03 · Skills</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     M04 / 21 · Divider — Plugins
+     ==================================================== -->
+<section data-theme="dark" data-label="21 M04 Plugins" data-screen-label="21 M04 Divider" class="divider">
+  <div class="frame">
+    <div class="head">
+      <div class="crumb"><span class="dot"></span><span>Module 04</span></div>
+      <div class="pg">M04 / 21</div>
+    </div>
+    <div class="body">
+      <div class="divider-grid">
+        <div class="module-numeral">0<span class="accent">4</span></div>
+        <div>
+          <h2 class="title">Plugins</h2>
+          <p class="subtitle">A skill in .claude/skills/ serves one repo. A plugin packages skills (plus hooks, subagents, and MCP configs) into a versioned, namespaced unit you can install anywhere.</p>
+          <div class="divider-meta">
+            <div class="row"><span class="lbl">Layer</span><span class="val">Packaged · distribution and versioning</span></div>
+            <div class="row"><span class="lbl">Scope</span><span class="val">Claude Code mechanism · contents stay portable</span></div>
+            <div class="row"><span class="lbl">Hands-on</span><span class="val">build one · install from the marketplace</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot">
+      <div class="row"><span><span class="col-label">Workbook</span>Tutorial 04</span></div>
+      <div>M04 · Plugins</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     M04 / 22 · When to convert
+     ==================================================== -->
+<section data-label="22 Standalone vs Plugin" data-screen-label="22 Standalone vs Plugin">
+  <div class="frame">
+    <div class="head">
+      <div class="crumb"><span class="dot"></span><span>M04 · Plugins</span><span>Standalone vs Plugin</span></div>
+      <div class="pg">M04 / 22</div>
+    </div>
+    <div class="body">
+      <h2 class="title">Start standalone,<br>then convert when you <em>share</em>.</h2>
+      <div class="title-rule"></div>
+      <div class="layers" style="margin-top: 48px;">
+        <div class="layer-card">
+          <span class="lbl">Standalone · .claude/</span>
+          <span class="nm">One repo, fast iteration</span>
+          <p class="desc">Personal or project-specific. Short names like <span class="mono">/standup</span>. Commit the folder and same-repo teammates already share it. Quick experiments live and die here, cheaply.</p>
+        </div>
+        <div class="layer-card">
+          <span class="lbl">Plugin</span>
+          <span class="nm">Cross-repo, versioned, namespaced</span>
+          <p class="desc">Deliberate releases via semver, or every commit ships, SHA-versioned. Names become <span class="mono">/team-standards:standup</span>: no collisions with anyone else's <span class="mono">/standup</span>. Installable by people who've never seen your repo.</p>
+        </div>
+      </div>
+      <p class="body-copy" style="margin-top: 44px;">The conversion is mechanical: a manifest file plus your existing folders. The decision is organizational: who else needs this, and how do they get updates?</p>
+    </div>
+    <div class="foot">
+      <div class="row"><span><span class="col-label">Same-repo team</span>commit .claude/skills/; a plugin is overkill</span></div>
+      <div>M04 · Plugins</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     M04 / 23 · Anatomy
+     ==================================================== -->
+<section data-label="23 Plugin Anatomy" data-screen-label="23 Plugin Anatomy">
+  <div class="frame">
+    <div class="head">
+      <div class="crumb"><span class="dot"></span><span>M04 · Plugins</span><span>Anatomy</span></div>
+      <div class="pg">M04 / 23</div>
+    </div>
+    <div class="body">
+      <div class="two-col narrow-right" style="gap: 80px;">
+        <div>
+          <p class="eyebrow" style="margin-bottom: 22px;">team-standards/</p>
+          <div class="codeblock" style="font-size: 24px; line-height: 1.65;">team-standards/
+├── .claude-plugin/
+│   └── plugin.json        <span class="c">← manifest, NOTHING else here</span>
+├── skills/
+│   └── money-handling/
+│       └── SKILL.md
+├── hooks/hooks.json       <span class="c">← optional</span>
+├── agents/                <span class="c">← optional</span>
+└── .mcp.json              <span class="c">← optional</span>
+
+<span class="h">plugin.json</span>{
+  <span class="k">"name"</span>: <span class="s">"team-standards"</span>,
+  <span class="k">"description"</span>: <span class="s">"Acme conventions"</span>,
+  <span class="k">"version"</span>: <span class="s">"0.1.0"</span>
+}</div>
+        </div>
+        <div>
+          <h2 class="title" style="font-size: 56px;">Only the manifest<br>lives <em>inside</em>.</h2>
+          <div class="title-rule"></div>
+          <p class="body-copy" style="margin-top: 36px;">The #1 structural mistake, per the official docs: putting component directories <em>inside</em> <span class="mono">.claude-plugin/</span>. Only the manifest lives there.</p>
+          <p class="body-copy" style="margin-top: 18px;"><span class="mono">name</span> is the namespace. <span class="mono">version</span> pins releases: omit it and the git SHA versions every commit.</p>
+          <p class="body-copy" style="margin-top: 18px; font-size: 24px; color: var(--ink-dim);">Paths inside the plugin: always <span class="mono">${CLAUDE_PLUGIN_ROOT}</span>, because the install directory moves on update.</p>
+        </div>
+      </div>
+    </div>
+    <div class="foot">
+      <div class="row"><span><span class="col-label">Validate</span>claude plugin validate ./team-standards</span></div>
+      <div>M04 · Plugins</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     M04 / 24 · Dev loop
+     ==================================================== -->
+<section data-label="24 The Dev Loop" data-screen-label="24 The Dev Loop">
+  <div class="frame">
+    <div class="head">
+      <div class="crumb"><span class="dot"></span><span>M04 · Plugins</span><span>The Dev Loop</span></div>
+      <div class="pg">M04 / 24</div>
+    </div>
+    <div class="body">
+      <h2 class="title">The dev loop is<br><em>four commands</em>.</h2>
+      <div class="title-rule"></div>
+      <ul class="list" style="margin-top: 48px;">
+        <li class="list-item">
+          <span class="n">scaffold</span>
+          <div>
+            <div class="t mono" style="font-size: 34px;">claude plugin init my-tool</div>
+            <div class="d">Generates the manifest and folder structure, with components in the right places.</div>
+          </div>
+        </li>
+        <li class="list-item">
+          <span class="n">test</span>
+          <div>
+            <div class="t mono" style="font-size: 34px;">claude --plugin-dir ./team-standards</div>
+            <div class="d">Loads the plugin from disk for this session. Confirm the namespaced skill appears in /skills.</div>
+          </div>
+        </li>
+        <li class="list-item">
+          <span class="n">iterate</span>
+          <div>
+            <div class="t mono" style="font-size: 34px;">/reload-plugins</div>
+            <div class="d">Picks up edits without restarting the session.</div>
+          </div>
+        </li>
+        <li class="list-item">
+          <span class="n">ship</span>
+          <div>
+            <div class="t mono" style="font-size: 34px;">claude plugin validate · git push</div>
+            <div class="d">Validate structure, push to a git repo; that repo can itself be a marketplace.</div>
+          </div>
+        </li>
+      </ul>
+      <div class="checkpoint" style="margin-top: 44px;">
+        <span class="ck">✓ Checkpoint</span>
+        <span class="tx">Your skill responds at /team-standards:money-handling, and `claude plugin details` shows nothing unexpected in the always-on token column.</span>
+      </div>
+    </div>
+    <div class="foot">
+      <div class="row"><span><span class="col-label">Debug</span>claude --debug · /plugin Errors tab</span></div>
+      <div>M04 · Plugins</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     M04 / 25 · Marketplaces
+     ==================================================== -->
+<section data-label="25 Marketplaces" data-screen-label="25 Marketplaces">
+  <div class="frame">
+    <div class="head">
+      <div class="crumb"><span class="dot"></span><span>M04 · Plugins</span><span>Marketplaces</span></div>
+      <div class="pg">M04 / 25</div>
+    </div>
+    <div class="body">
+      <h2 class="title">Install from <em>catalogs</em>:<br>three kinds are worth knowing.</h2>
+      <div class="title-rule"></div>
+      <div class="card-grid cols-3" style="margin-top: 48px;">
+        <div class="card">
+          <span class="num">Catalog 01</span>
+          <span class="name">Language servers</span>
+          <p class="desc">pyright, gopls, rust-analyzer, typescript… The agent sees type errors after every edit (no compile step) and navigates by symbol instead of grep.</p>
+          <span class="pill">binary on PATH required</span>
+        </div>
+        <div class="card">
+          <span class="num">Catalog 02</span>
+          <span class="name">Integrations</span>
+          <p class="desc">GitHub, GitLab, Linear, Sentry, Figma, Supabase: plugins that bundle a pre-configured MCP server. The cleanest way to hand a team a connection.</p>
+          <span class="pill">bundled .mcp.json</span>
+        </div>
+        <div class="card">
+          <span class="num">Catalog 03</span>
+          <span class="name">Workflows</span>
+          <p class="desc">commit-commands, pr-review-toolkit, and code-review (the replacement for the deprecated /review built-in).</p>
+          <span class="pill">skills + agents</span>
+        </div>
+      </div>
+      <p class="body-copy" style="margin-top: 44px;">Browse with <span class="mono">/plugin</span>. Install scopes: user (all your projects) · project (committed, team-shared) · local (this repo, just you) · managed (pushed by admins). Team catalogs: <span class="mono">/plugin marketplace add acme-org/claude-plugins</span>.</p>
+    </div>
+    <div class="foot">
+      <div class="row"><span><span class="col-label">Security</span>plugins run arbitrary code with your privileges; curate sources</span></div>
+      <div>M04 · Plugins</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     M04 / 26 · Beyond skills
+     ==================================================== -->
+<section data-label="26 Beyond Skills" data-screen-label="26 Beyond Skills">
+  <div class="frame">
+    <div class="head">
+      <div class="crumb"><span class="dot"></span><span>M04 · Plugins</span><span>Beyond Skills</span></div>
+      <div class="pg">M04 / 26</div>
+    </div>
+    <div class="body">
+      <h2 class="title">A plugin can carry<br><em>six component types</em>.</h2>
+      <div class="title-rule"></div>
+      <table class="matrix" style="margin-top: 40px;">
+        <thead>
+          <tr><th style="width: 300px;">Component</th><th style="width: 420px;">File</th><th>Adds</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="task" style="font-size: 30px;">Skills</td><td class="surface">skills/*/SKILL.md</td><td class="why">Everything from Module 03, namespaced.</td></tr>
+          <tr><td class="task" style="font-size: 30px;">Hooks</td><td class="surface">hooks/hooks.json</td><td class="why">Checks at ~30 lifecycle events; PreToolUse can block a call before it runs.</td></tr>
+          <tr><td class="task" style="font-size: 30px;">Subagents</td><td class="surface">agents/*.md</td><td class="why">Specialized agents with their own tools, model, and isolation.</td></tr>
+          <tr><td class="task" style="font-size: 30px;">MCP servers</td><td class="surface">.mcp.json</td><td class="why">Connections that start when the plugin is enabled (Module 05).</td></tr>
+          <tr><td class="task" style="font-size: 30px;">LSP</td><td class="surface">.lsp.json</td><td class="why">Live diagnostics and code navigation.</td></tr>
+          <tr><td class="task" style="font-size: 30px;">PATH tools</td><td class="surface">bin/</td><td class="why">Executables available to the agent's shell while enabled.</td></tr>
+        </tbody>
+      </table>
+      <p class="body-copy" style="margin-top: 36px; font-size: 24px; color: var(--ink-dim);">Today you ship skills. The rest are pointers; each is a tutorial of its own.</p>
+    </div>
+    <div class="foot">
+      <div class="row"><span><span class="col-label">Reference</span>code.claude.com/docs · plugins-reference</span></div>
+      <div>M04 · Plugins</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     M05 / 27 · Divider — MCP
+     ==================================================== -->
+<section data-theme="dark" data-label="27 M05 MCP" data-screen-label="27 M05 Divider" class="divider">
+  <div class="frame">
+    <div class="head">
+      <div class="crumb"><span class="dot"></span><span>Module 05</span></div>
+      <div class="pg">M05 / 27</div>
+    </div>
+    <div class="body">
+      <div class="divider-grid">
+        <div class="module-numeral">0<span class="accent">5</span></div>
+        <div>
+          <h2 class="title">MCP Servers</h2>
+          <p class="subtitle">Everything so far has been files the agent reads. MCP adds connections: typed tools and live data from the systems around your code.</p>
+          <div class="divider-meta">
+            <div class="row"><span class="lbl">Layer</span><span class="val">Connected · tools and live data</span></div>
+            <div class="row"><span class="lbl">Standard</span><span class="val">Model Context Protocol (modelcontextprotocol.io) · open</span></div>
+            <div class="row"><span class="lbl">Hands-on</span><span class="val">add remote · add local · scope · verify · debug</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot">
+      <div class="row"><span><span class="col-label">Workbook</span>Tutorial 05</span></div>
+      <div>M05 · MCP</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     M05 / 28 · The signal
+     ==================================================== -->
+<section data-theme="dark" data-label="28 The Signal" data-screen-label="28 The Signal">
+  <div class="frame">
+    <div class="head">
+      <div class="crumb"><span class="dot"></span><span>M05 · MCP</span><span>The Signal</span></div>
+      <div class="pg">M05 / 28</div>
+    </div>
+    <div class="body" style="justify-content: center;">
+      <p class="sigil">When to reach for MCP</p>
+      <p class="pullquote" style="margin-top: 30px;">The moment you catch yourself<br><span class="accent">copy-pasting</span> from another tool<br>into the chat.</p>
+      <p class="body-copy" style="margin-top: 48px; font-size: 28px; max-width: 1500px;">Tickets, error traces, database rows, design specs: if you ferry it by hand, a server can hand it to the agent directly. Skills carry <em>knowledge</em>; MCP carries <em>capability</em>. They compose: this module ends with skills that build MCP servers.</p>
+    </div>
+    <div class="foot">
+      <div class="row"><span><span class="col-label">Exercise</span>list your three most-pasted sources; that's your server shortlist</span></div>
+      <div>M05 · MCP</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     M05 / 29 · Adding servers
+     ==================================================== -->
+<section data-label="29 Adding Servers" data-screen-label="29 Adding Servers">
+  <div class="frame">
+    <div class="head">
+      <div class="crumb"><span class="dot"></span><span>M05 · MCP</span><span>Adding Servers</span></div>
+      <div class="pg">M05 / 29</div>
+    </div>
+    <div class="body">
+      <h2 class="title">Servers speak remote HTTP<br>or <em>local stdio</em>.</h2>
+      <div class="title-rule"></div>
+      <div class="two-col" style="margin-top: 44px; gap: 70px;">
+        <div>
+          <p class="eyebrow" style="margin-bottom: 18px;">Remote · HTTP</p>
+          <div class="codeblock" style="font-size: 24px; line-height: 1.6;"><span class="k">$</span> claude mcp add --transport http \
+    claude-code-docs \
+    https://code.claude.com/docs/mcp
+
+<span class="c"># add · transport · your name · url</span></div>
+          <p class="body-copy" style="margin-top: 24px; font-size: 24px;">Cloud services: docs, Sentry, GitHub, Notion. Zero install; OAuth where needed.</p>
+        </div>
+        <div>
+          <p class="eyebrow" style="margin-bottom: 18px;">Local · stdio</p>
+          <div class="codeblock" style="font-size: 24px; line-height: 1.6;"><span class="k">$</span> claude mcp add playwright -- \
+    npx -y @playwright/mcp@latest
+
+<span class="c"># no --transport flag (stdio is default)
+# the bare -- separates Claude's flags
+# from the server's own command line</span></div>
+          <p class="body-copy" style="margin-top: 24px; font-size: 24px;">Local processes: browsers, filesystems, databases. The missing <span class="mono">--</span> is the #1 add-time failure.</p>
+        </div>
+      </div>
+      <p class="body-copy" style="margin-top: 40px;">Verify with <span class="mono">claude mcp list</span>: five statuses from <span class="accent">✓ Connected</span> to <span class="mono">⏸ Pending approval</span>. First tool use prompts for permission; calls are labeled with the server name. SSE transport is deprecated.</p>
+    </div>
+    <div class="foot">
+      <div class="row"><span><span class="col-label">First-run note</span>stdio may show "failed" while npx downloads; retry once</span></div>
+      <div>M05 · MCP</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     M05 / 30 · Scopes
+     ==================================================== -->
+<section data-label="30 Server Scopes" data-screen-label="30 Server Scopes">
+  <div class="frame">
+    <div class="head">
+      <div class="crumb"><span class="dot"></span><span>M05 · MCP</span><span>Scopes</span></div>
+      <div class="pg">M05 / 30</div>
+    </div>
+    <div class="body">
+      <h2 class="title">Who gets this server?</h2>
+      <div class="title-rule"></div>
+      <div class="two-col narrow-left" style="margin-top: 40px; gap: 80px;">
+        <div>
+          <table class="matrix">
+            <thead>
+              <tr><th style="width: 170px;">Scope</th><th style="width: 330px;">Lives in</th><th>Who sees it</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="surface">local</td><td class="why mono" style="font-size: 24px;">~/.claude.json (per-project)</td><td class="why">You, this project. The default.</td></tr>
+              <tr><td class="surface">project</td><td class="why mono" style="font-size: 24px;">.mcp.json at repo root</td><td class="why">The whole team; committed, approval-gated.</td></tr>
+              <tr><td class="surface">user</td><td class="why mono" style="font-size: 24px;">~/.claude.json (top level)</td><td class="why">You, every project.</td></tr>
+            </tbody>
+          </table>
+          <p class="body-copy" style="margin-top: 32px; font-size: 24px;">Scope is fixed at add time: changing it means remove and re-add with <span class="mono">--scope</span>.</p>
+        </div>
+        <div>
+          <p class="eyebrow" style="margin-bottom: 18px;">.mcp.json · no secrets, ever</p>
+          <div class="codeblock" style="font-size: 24px; line-height: 1.55;">{
+  <span class="k">"mcpServers"</span>: {
+    <span class="k">"github"</span>: {
+      <span class="k">"type"</span>: <span class="s">"http"</span>,
+      <span class="k">"url"</span>: <span class="s">"https://api.githubcopilot.com/mcp/"</span>,
+      <span class="k">"headers"</span>: {
+        <span class="k">"Authorization"</span>: <span class="s">"Bearer ${GITHUB_PAT}"</span>
+      }
+    }
+  }
+}</div>
+          <p class="body-copy" style="margin-top: 24px; font-size: 24px;"><span class="mono">${VAR}</span> expansion keeps keys out of version control; teammates get an approval prompt before anything launches.</p>
+        </div>
+      </div>
+    </div>
+    <div class="foot">
+      <div class="row"><span><span class="col-label">OAuth servers</span>/mcp → Authenticate → browser · tokens auto-refresh</span></div>
+      <div>M05 · MCP</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     M05 / 31 · Cost + security
+     ==================================================== -->
+<section data-label="31 Cost and Trust" data-screen-label="31 Cost and Trust">
+  <div class="frame">
+    <div class="head">
+      <div class="crumb"><span class="dot"></span><span>M05 · MCP</span><span>Cost &amp; Trust</span></div>
+      <div class="pg">M05 / 31</div>
+    </div>
+    <div class="body">
+      <h2 class="title">Every server costs <em>context</em>.<br>Some cost <em>trust</em>.</h2>
+      <div class="title-rule"></div>
+      <div class="layers" style="margin-top: 48px;">
+        <div class="layer-card">
+          <span class="lbl">The context bill</span>
+          <span class="nm">Run /context, then decide</span>
+          <p class="desc">Tool Search keeps the bill down by default: full schemas load on demand, not at startup. Output is capped (<span class="mono">MAX_MCP_OUTPUT_TOKENS</span>, default 25k). The cheapest mitigation: <span class="mono">claude mcp remove</span> for servers you stopped using.</p>
+        </div>
+        <div class="layer-card">
+          <span class="lbl">The trust bill</span>
+          <span class="nm">Content can carry instructions</span>
+          <p class="desc">A server that fetches external content (web pages, tickets, emails) can carry prompt injection in that content. Treat server trust like dependency trust: prefer official and curated servers for anything that touches credentials.</p>
+        </div>
+      </div>
+      <div class="checkpoint" style="margin-top: 44px;">
+        <span class="ck">✓ Checkpoint</span>
+        <span class="tx">A remote and a local server both ✓ Connected, one tool exercised from each, and you can say what they cost in /context.</span>
+      </div>
+    </div>
+    <div class="foot">
+      <div class="row"><span><span class="col-label">Triage table</span>Tutorial 05 · from "No servers configured" to reset-project-choices</span></div>
+      <div>M05 · MCP</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     M05 / 32 · Building + publishing
+     ==================================================== -->
+<section data-label="32 Building Servers" data-screen-label="32 Building Servers">
+  <div class="frame">
+    <div class="head">
+      <div class="crumb"><span class="dot"></span><span>M05 · MCP</span><span>Building &amp; Publishing</span></div>
+      <div class="pg">M05 / 32</div>
+    </div>
+    <div class="body">
+      <div class="two-col" style="gap: 80px;">
+        <div>
+          <p class="eyebrow">The standards compose</p>
+          <h2 class="title" style="font-size: 52px; margin-top: 14px;">Skills can<br><em>build servers</em>.</h2>
+          <div class="title-rule"></div>
+          <div class="codeblock" style="margin-top: 32px; font-size: 24px; line-height: 1.6;"><span class="k">&gt;</span> /plugin install mcp-server-dev@
+    claude-plugins-official
+<span class="k">&gt;</span> Build an MCP server for our
+  internal weather API</div>
+          <p class="body-copy" style="margin-top: 28px; font-size: 24px;">Three composing skills interview you (what it connects to, who uses it, how it authenticates) and then scaffold the right deployment shape: remote HTTP for cloud APIs, a bundle for local machine access, stdio for prototypes.</p>
+        </div>
+        <div>
+          <p class="eyebrow">Watch-only today</p>
+          <h2 class="title" style="font-size: 52px; margin-top: 14px;">Publishing goes through<br>the <em>registry</em>.</h2>
+          <div class="title-rule"></div>
+          <div class="codeblock" style="margin-top: 32px; font-size: 24px; line-height: 1.6;"><span class="k">$</span> npm publish --access public
+<span class="k">$</span> mcp-publisher init
+<span class="k">$</span> mcp-publisher login github
+<span class="k">$</span> mcp-publisher publish</div>
+          <p class="body-copy" style="margin-top: 28px; font-size: 24px;">The registry holds metadata, not code: your package still lives on npm, with an <span class="mono">mcpName</span> field tying the two together.</p>
+        </div>
+      </div>
+    </div>
+    <div class="foot">
+      <div class="row"><span><span class="col-label">Full circle</span>skills build MCP servers · plugins distribute both</span></div>
+      <div>M05 · MCP</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     M06 / 33 · The layer model
+     ==================================================== -->
+<section data-label="33 The Layer Model" data-screen-label="33 The Layer Model">
+  <div class="frame">
+    <div class="head">
+      <div class="crumb"><span class="dot"></span><span>M06 · Close</span><span>The Layer Model</span></div>
+      <div class="pg">M06 / 33</div>
+    </div>
+    <div class="body">
+      <h2 class="title">One question routes <em>everything</em>:<br>which layer does this belong in?</h2>
+      <div class="title-rule"></div>
+      <table class="matrix" style="margin-top: 44px;">
+        <thead>
+          <tr><th style="width: 560px;">"I want the agent to…"</th><th style="width: 300px;">Layer</th><th>Why</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="task">know our build commands</td><td class="surface">AGENTS.md</td><td class="why">Every session needs it.</td></tr>
+          <tr><td class="task">follow our review checklist on request</td><td class="surface">Skill</td><td class="why">Some sessions need it; pay on use.</td></tr>
+          <tr><td class="task">never run deploys on its own</td><td class="surface">Skill · user-only</td><td class="why">disable-model-invocation, plus /permissions.</td></tr>
+          <tr><td class="task">give the whole org our conventions</td><td class="surface">Plugin</td><td class="why">Versioned, namespaced, installable.</td></tr>
+          <tr><td class="task">read tickets without copy-paste</td><td class="surface">MCP server</td><td class="why">Capability, not knowledge.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="foot">
+      <div class="row"><span><span class="col-label">Mnemonic</span>always-loaded · invoked · on-demand · packaged · connected</span></div>
+      <div>M06 · Close</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     M06 / 34 · Homework
+     ==================================================== -->
+<section data-label="34 Homework" data-screen-label="34 Homework">
+  <div class="frame">
+    <div class="head">
+      <div class="crumb"><span class="dot"></span><span>M06 · Close</span><span>Homework</span></div>
+      <div class="pg">M06 / 34</div>
+    </div>
+    <div class="body" style="justify-content: center;">
+      <p class="eyebrow">Three steps that compound</p>
+      <h2 class="title" style="font-size: 96px; margin-top: 18px;">One AGENTS.md,<br>one skill from a <em>real correction</em>,<br>and one server you'll actually use.</h2>
+      <div class="title-rule"></div>
+      <p class="body-copy" style="margin-top: 48px; font-size: 30px; max-width: 1500px;">In that order, on one real repo, this week. The AGENTS.md takes twenty minutes. The skill comes from your last code review. The server comes from your copy-paste audit.</p>
+    </div>
+    <div class="foot">
+      <div class="row"><span><span class="col-label">Anti-goal</span>installing ten plugins you never open again</span></div>
+      <div>M06 · Close</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     M06 / 35 · Resources
+     ==================================================== -->
+<section data-label="35 Resources" data-screen-label="35 Resources">
+  <div class="frame">
+    <div class="head">
+      <div class="crumb"><span class="dot"></span><span>M06 · Close</span><span>Resources &amp; Q&amp;A</span></div>
+      <div class="pg">M06 / 35</div>
+    </div>
+    <div class="body">
+      <h2 class="title">Resources</h2>
+      <div class="title-rule"></div>
+      <div class="card-grid cols-3" style="margin-top: 28px; gap: 18px;">
+        <div class="card" style="min-height: 0;">
+          <span class="num">Docs</span>
+          <span class="name" style="font-size: 36px;">code.claude.com/docs</span>
+          <p class="desc">Commands, skills, plugins, MCP: the reference for everything in Modules 02–05.</p>
+          <span class="pill">also: an MCP server of itself</span>
+        </div>
+        <div class="card" style="min-height: 0;">
+          <span class="num">Standard</span>
+          <span class="name" style="font-size: 36px;">agentskills.io</span>
+          <p class="desc">The Agent Skills spec, best practices, and script guidance.</p>
+          <span class="pill">open standard</span>
+        </div>
+        <div class="card" style="min-height: 0;">
+          <span class="num">Directory</span>
+          <span class="name" style="font-size: 36px;">skills.sh</span>
+          <p class="desc">Community skills with install counts and security audits.</p>
+          <span class="pill">npx skills add &lt;owner/repo&gt;</span>
+        </div>
+        <div class="card" style="min-height: 0;">
+          <span class="num">Standard</span>
+          <span class="name" style="font-size: 36px;">modelcontextprotocol.io</span>
+          <p class="desc">The MCP spec, registry, and server-building guides.</p>
+          <span class="pill">spec · registry · sdks</span>
+        </div>
+        <div class="card" style="min-height: 0;">
+          <span class="num">Standard</span>
+          <span class="name" style="font-size: 36px;">agents.md</span>
+          <p class="desc">The cross-vendor instruction-file convention from Module 01.</p>
+          <span class="pill">CLAUDE.md → AGENTS.md</span>
+        </div>
+        <div class="card" style="min-height: 0;">
+          <span class="num">This course</span>
+          <span class="name" style="font-size: 36px;">Lab Workbook</span>
+          <p class="desc">All five tutorials with checkpoints, exercises, and troubleshooting; self-contained for anyone who missed today.</p>
+          <span class="pill">share freely</span>
+        </div>
+      </div>
+    </div>
+    <div class="foot">
+      <div class="row"><span><span class="col-label accent">Q&amp;A</span><span>Daniel Bodnar</span></span></div>
+      <div>M06 · Close</div>
+    </div>
+  </div>
+</section>
+
+</deck-stage>
+
+<button id="theme-toggle" type="button" aria-label="Switch theme">
+  <span class="sw"></span>
+  <span class="tx">Navy</span>
+</button>
+
+<!-- Scripts -->
+<script src="deck-stage.js"></script>
+<script>
+(function () {
+  var root = document.documentElement;
+  var btn = document.getElementById('theme-toggle');
+  var KEY = 'eta-deck-theme';
+  function paint(t) {
+    root.setAttribute('data-theme', t);
+    btn.setAttribute('aria-pressed', t === 'dark');
+    btn.querySelector('.tx').textContent = t === 'dark' ? 'Navy' : 'Light';
+  }
+  var saved = null;
+  try { saved = localStorage.getItem(KEY); } catch (e) {}
+  paint(saved === 'dark' ? 'dark' : 'light');
+  btn.addEventListener('click', function () {
+    var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    paint(next);
+    try { localStorage.setItem(KEY, next); } catch (e) {}
+  });
+})();
+</script>
+
+</body>
+</html>
