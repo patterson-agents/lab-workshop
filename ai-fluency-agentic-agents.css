@@ -101,7 +101,7 @@ deck-stage section > * { position: relative; z-index: 1; }
 /* Navy statement slides — the master's wave field, used on dividers and
    full-bleed statements. Light slides stay plain white. */
 deck-stage section[data-theme="dark"] {
-  background-image: url('assets/brand/wave-bg-navy.png');
+  background-image: url('assets/brand/wave-bg-navy.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

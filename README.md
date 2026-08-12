@@ -86,8 +86,8 @@ content before substitution — dimensions changed, the images did not):
 
 | File | Before | After |
 |---|---|---|
-| `assets/brand/value-prop.png` | 2754×1000, 2.6 MB | 1600×581, 240 KB |
-| `assets/brand/wave-bg-navy.png` | 3840×2160, 360 KB | 1920×1080, 6.7 KB |
+| `assets/brand/value-prop.webp` | 2754×1000, 2.6 MB | 1600×581, 240 KB |
+| `assets/brand/wave-bg-navy.webp` | 3840×2160, 360 KB | 1920×1080, 6.7 KB |
 
 `assets/lab-screenshot.png` (305 KB) was left as-is.
 
