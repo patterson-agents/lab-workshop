@@ -1,0 +1,18 @@
+# Font binaries — ground rule: no fonts committed. Licensing of self-hosted
+# Proxima Nova is unconfirmed; fonts load via the Adobe Fonts kit or are
+# restorable from the original handoff zip pending a license ruling.
+*.woff2
+*.woff
+*.ttf
+
+# claude.ai/design export artifact — not part of the deliverable.
+.thumbnail
+
+# Reference-only third-party/user-supplied material, excluded per this
+# export's own AGENTS.md ("Do not edit uploads/") and duplicated
+# (the .pptx) in the patterson-design-system bundle.
+uploads/
+
+# OS / editor noise
+.DS_Store
+*.swp
