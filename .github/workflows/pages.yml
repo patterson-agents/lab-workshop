@@ -35,9 +35,6 @@ jobs:
         working-directory: site
         run: bun install --frozen-lockfile
 
-      - name: Port TutorialKit content to Starlight
-        run: node scripts/build-tutorial.ts
-
       - name: Build site
         working-directory: site
         run: bun run build
@@ -48,15 +45,18 @@ jobs:
           out="$(mktemp -d)"
 
           # Passthrough materials at their current paths — the deck, executive
-          # decks, workbook, lesson plan, TutorialKit preview, Skill Studio,
-          # curriculum source, docs, and the design-system snapshot. Copied
-          # first so the Starlight build below wins any path collision
-          # (notably the old hand-authored root index.html).
+          # decks, workbook, lesson plan, Skill Studio, curriculum source,
+          # docs, and the design-system snapshot. Copied first so the Starlight
+          # build below wins any path collision (notably the old hand-authored
+          # root index.html).
+          #
+          # Keep this list in sync with the tree: every name here must exist,
+          # or the copy fails the job under `set -eu`.
           shopt -s nullglob
           for f in *.html *.css *.js *.jsx; do
             cp "$f" "$out/"
           done
-          for d in assets _ds skill-studio tk-app tutorialkit curriculum docs; do
+          for d in assets _ds skill-studio curriculum docs; do
             if [ -d "$d" ]; then cp -r "$d" "$out/"; fi
           done
 
