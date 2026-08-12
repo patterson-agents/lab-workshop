@@ -16,3 +16,10 @@ uploads/
 # OS / editor noise
 .DS_Store
 *.swp
+
+# Package-manager and build artifacts — this repo publishes `.`, so these
+# must never be tracked.
+node_modules/
+dist/
+.astro/
+site/dist/
